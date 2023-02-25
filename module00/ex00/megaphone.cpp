@@ -6,17 +6,19 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:06:04 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/02/08 17:35:12 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:21:45 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
+#include <string>
 
 int	main(int ac, char **av)
 {
-	int i = 0;
-	int j = 0;
+	int 	i = 0;
+	int 	j = 0;
+	char	**buff = av;
 	
 	if (ac < 2)
 	{
@@ -25,7 +27,12 @@ int	main(int ac, char **av)
 	}
 	av++;
 	for (i = 0; av[i]; i++)
+	{
+		buff[i] = av[i];
 		for (j = 0; av[i][j]; j++)
-			putchar(toupper(av[i][j]));
+			buff[i][j] = toupper(av[i][j]);
+		std::cout << buff[i];
+	}
+	std::cout << std::endl;
 	return 0;
 }
