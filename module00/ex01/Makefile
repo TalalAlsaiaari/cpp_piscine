@@ -6,13 +6,13 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 19:46:32 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/02/25 19:47:24 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/03/16 20:47:29 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = my_phonebook
 
-FILES = phonebook.cpp
+FILES = Phonebook.cpp Contact.cpp main.cpp
 
 OBJS = $(FILES:.cpp=.o)
 

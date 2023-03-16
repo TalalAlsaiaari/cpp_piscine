@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 19:44:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/03/16 20:42:55 by talsaiaa         ###   ########.fr       */
+/*   Created: 2023/03/04 01:37:05 by talsaiaa          #+#    #+#             */
+/*   Updated: 2023/03/16 21:45:56 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-
-#include <iostream>
-#include <string>
 #include "Contact.hpp"
 
-class	Phonebook
+Contact::Contact()
 {
-	private:
-		Contact contacts[8];
-	// public:
-	// 	void add(void);
-	// 	~Phonebook(void);
-};
-#endif
+}
+
+Contact::~Contact()
+{
+}
+
+void	Contact::ph_add()
+{
+	std::cout << "First Name: \n";
+	std::cin >> FirstName;
+	std::cout << "Last Name: \n";
+	std::cin >> LastName;
+	std::cout << "Nickname: \n";
+	std::cin >> Nickname;
+	std::cout << "Phone Number: \n";
+	std::cin >> PhoneNumber;
+	std::cout << "Darkest Secret: \n";
+	std::cin >> DarkestSecret;
+}
