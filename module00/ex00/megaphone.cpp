@@ -16,22 +16,23 @@
 
 int	main(int ac, char **av)
 {
-	int 	i = 0;
-	int 	j = 0;
-	char	**buff = av;
-	
+	int 					i = 0;
+	std::string				s;
+	std::string::iterator	it;
+
 	if (ac < 2)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return 1;
 	}
-	av++;
-	for (i = 0; av[i]; i++)
+	for (i = 1; av[i]; i++)
 	{
-		buff[i] = av[i];
-		for (j = 0; av[i][j]; j++)
-			buff[i][j] = toupper(av[i][j]);
-		std::cout << buff[i];
+		s = av[i];
+		for (it = s.begin(); it != s.end(); it++)
+		{
+			*it = toupper(*it);
+			std::cout << *it;
+		}
 	}
 	std::cout << std::endl;
 	return 0;
