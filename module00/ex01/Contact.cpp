@@ -19,17 +19,3 @@ Contact::Contact()
 Contact::~Contact()
 {
 }
-
-void	Contact::ph_add()
-{
-	std::cout << "First Name: \n";
-	std::cin >> FirstName;
-	std::cout << "Last Name: \n";
-	std::cin >> LastName;
-	std::cout << "Nickname: \n";
-	std::cin >> Nickname;
-	std::cout << "Phone Number: \n";
-	std::cin >> PhoneNumber;
-	std::cout << "Darkest Secret: \n";
-	std::cin >> DarkestSecret;
-}

@@ -1,0 +1,2 @@
+* 2 classes, contact class and phonebook class. contact class has member variables like first name, last name ..etc, phonebook class has contact as a member
+	variable and member function to add, delete, view ... etc.

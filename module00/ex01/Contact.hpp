@@ -26,8 +26,6 @@ class	Contact
 		std::string DarkestSecret;
 	public:
 		Contact(void);
-		~Contact(void);
-		void ph_add();
-	
+		~Contact(void);	
 };
 #endif
