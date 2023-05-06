@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = my_phonebook
+NAME = phonebook
 
-FILES = Phonebook.cpp Contact.cpp main.cpp
+FILES = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS = $(FILES:.cpp=.o)
 

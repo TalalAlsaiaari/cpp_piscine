@@ -17,12 +17,13 @@
 #include <string>
 #include "Contact.hpp"
 
-class	Phonebook
+class	PhoneBook
 {
 	private:
 		Contact contacts[8];
-	// public:
-	// 	void add(void);
-	// 	~Phonebook(void);
+	public:
+		PhoneBook(void);
+		~PhoneBook(void);
 };
+
 #endif

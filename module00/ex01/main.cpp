@@ -10,12 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 #include "Contact.hpp"
 
 int	main(void)
 {
-	Phonebook	phonebook;
+	PhoneBook	phonebook;
+	std::string	buff;
+
+	while (true)
+	{
+		std::cout << "Enter a command: ";
+		std::getline(std::cin, buff);
+		if (buff == "ADD")
+		{
+			//some code here
+			std::cout << "Add func" << std::endl;
+		}
+		else if (buff == "SEARCH")
+		{
+			//some code here
+			std::cout << "search func" << std::endl;
+		}
+		else if (buff == "EXIT")
+			break ;
+	}
 	
 	return 0;
 }

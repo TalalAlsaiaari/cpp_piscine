@@ -10,27 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-// Phonebook::Phonebook(void)
-// {
-// 	std::cout << "Constructor called" << std::endl;
-// 	this->foo = 42;
-// 	std::cout << "this->foo is: " << this->foo << std::endl;
-// 	this->bar();
-// 	return ;
-// }
+PhoneBook::PhoneBook(void)
+{
+	std::cout << "PhoneBook Constructor called" << std::endl;
+	return ;
+}
 
-// Phonebook::~Phonebook(void)
-// {
-// 	std::cout << "Destructor called" << std::endl;
-// 	return ;
-// }
+PhoneBook::~PhoneBook(void)
+{
+	std::cout << "PhoneBook Destructor called" << std::endl;
+	return ;
+}
 
-// void	Phonebook::add(void)
-// {
-// 	std::cout << "First Name: ";
-// 	std::cin >> ;
-// 	return ;
-// }
