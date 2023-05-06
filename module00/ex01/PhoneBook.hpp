@@ -20,10 +20,17 @@
 class	PhoneBook
 {
 	private:
-		Contact contacts[8];
+		Contact 	contacts[8];
+		std::string FirstName;
+		std::string LastName;
+		std::string Nickname;
+		std::string PhoneNumber;
+		std::string DarkestSecret;
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
+		void	addContact(void);
+		void	searchContact(void);
 };
 
 #endif

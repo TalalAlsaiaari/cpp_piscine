@@ -24,3 +24,8 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
+void	PhoneBook::addContact(void)
+{
+	
+}
+

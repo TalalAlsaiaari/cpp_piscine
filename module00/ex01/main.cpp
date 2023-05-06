@@ -26,11 +26,13 @@ int	main(void)
 		{
 			//some code here
 			std::cout << "Add func" << std::endl;
+			phonebook.addContact();
 		}
 		else if (buff == "SEARCH")
 		{
 			//some code here
 			std::cout << "search func" << std::endl;
+			phonebook.searchContact();
 		}
 		else if (buff == "EXIT")
 			break ;
