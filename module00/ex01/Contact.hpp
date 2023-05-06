@@ -26,6 +26,17 @@ class	Contact
 		std::string DarkestSecret;
 	public:
 		Contact(void);
-		~Contact(void);	
+		~Contact(void);
+		std::string getFirstName(void) const;
+		std::string getLastName(void) const;
+		std::string getNickname(void) const;
+		std::string getPhoneNumber(void) const;
+		std::string getDarkestSecret(void) const;
+		void setFirstName(std::string s);
+		void setLastName(std::string s);
+		void setNickname(std::string s);
+		void setPhoneNumber(std::string s);
+		void setDarkestSecret(std::string s);
 };
+
 #endif

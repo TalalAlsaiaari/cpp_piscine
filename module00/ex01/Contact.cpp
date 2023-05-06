@@ -14,8 +14,67 @@
 
 Contact::Contact()
 {
+	std::cout << "Construcor called" << std::endl;
+	return ;
 }
 
 Contact::~Contact()
 {
+	std::cout << "Destructor called" << std::endl;
+	return ;
+}
+
+std::string	Contact::getFirstName(void) const
+{
+	return this->FirstName;
+}
+
+std::string	Contact::getLastName(void) const
+{
+	return this->LastName;
+}
+
+std::string	Contact::getNickname(void) const
+{
+	return this->Nickname;
+}
+
+std::string	Contact::getPhoneNumber(void) const
+{
+	return this->PhoneNumber;
+}
+
+std::string	Contact::getDarkestSecret(void) const
+{
+	return this->DarkestSecret;
+}
+
+void	Contact::setFirstName(std::string s)
+{
+	this->FirstName = s;
+	return ;
+}
+
+void	Contact::setLastName(std::string s)
+{
+	this->LastName = s;
+	return ;
+}
+
+void	Contact::setNickname(std::string s)
+{
+	this->Nickname = s;
+	return ;
+}
+
+void	Contact::setPhoneNumber(std::string s)
+{
+	this->PhoneNumber = s;
+	return ;
+}
+
+void	Contact::setDarkestSecret(std::string s)
+{
+	this->DarkestSecret = s;
+	return ;
 }
