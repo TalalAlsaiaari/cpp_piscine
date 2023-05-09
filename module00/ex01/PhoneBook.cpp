@@ -26,6 +26,18 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::addContact(void)
 {
-	
+	ContactNum = 0;
+	std::cout << "Kindly input the information of the contact one field at a time: " << std::endl;
+	std::cout << "First Name: ";
+	contacts[ContactNum].setFirstName();
+	std::cout << std::endl;
+	ContactNum++;
+	return ;
 }
 
+void	PhoneBook::searchContact(void)
+{
+	// int	i = 1;
+	std::cout << "index	|	first name	|	last name	|	nickname" << std::endl;
+	return ;
+}

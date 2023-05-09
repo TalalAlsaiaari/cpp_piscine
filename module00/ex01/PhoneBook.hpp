@@ -21,11 +21,8 @@ class	PhoneBook
 {
 	private:
 		Contact 	contacts[8];
-		std::string FirstName;
-		std::string LastName;
-		std::string Nickname;
-		std::string PhoneNumber;
-		std::string DarkestSecret;
+		int			ContactNum;
+
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);

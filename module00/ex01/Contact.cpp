@@ -49,32 +49,32 @@ std::string	Contact::getDarkestSecret(void) const
 	return this->DarkestSecret;
 }
 
-void	Contact::setFirstName(std::string s)
+void	Contact::setFirstName(void)
 {
-	this->FirstName = s;
+	std::getline(std::cin, this->FirstName);
 	return ;
 }
 
-void	Contact::setLastName(std::string s)
+void	Contact::setLastName(void)
 {
-	this->LastName = s;
+	std::getline(std::cin, this->LastName);
 	return ;
 }
 
-void	Contact::setNickname(std::string s)
+void	Contact::setNickname(void)
 {
-	this->Nickname = s;
+	std::getline(std::cin, this->Nickname);
 	return ;
 }
 
-void	Contact::setPhoneNumber(std::string s)
+void	Contact::setPhoneNumber(void)
 {
-	this->PhoneNumber = s;
+	std::getline(std::cin, this->PhoneNumber);
 	return ;
 }
 
-void	Contact::setDarkestSecret(std::string s)
+void	Contact::setDarkestSecret(void)
 {
-	this->DarkestSecret = s;
+	std::getline(std::cin, this->DarkestSecret);
 	return ;
 }

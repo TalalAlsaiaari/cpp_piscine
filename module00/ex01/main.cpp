@@ -22,15 +22,15 @@ int	main(void)
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, buff);
+		if (std::cin.eof())
+			return (1);
 		if (buff == "ADD")
 		{
-			//some code here
 			std::cout << "Add func" << std::endl;
 			phonebook.addContact();
 		}
 		else if (buff == "SEARCH")
 		{
-			//some code here
 			std::cout << "search func" << std::endl;
 			phonebook.searchContact();
 		}
