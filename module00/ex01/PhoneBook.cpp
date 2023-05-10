@@ -79,6 +79,7 @@ void	PhoneBook::addContact(void)
 void	PhoneBook::searchContact(void)
 {
 	int	i = 0;
+	int index;
 	
 	std::cout << std::endl;
 	std::cout << std::right << std::setw(10) << "index" << "|" 
@@ -89,12 +90,24 @@ void	PhoneBook::searchContact(void)
 	do
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|" 
-		<< std::setw(10) << contacts[i].getFirstName() << "|"  
-		<< std::setw(10) << contacts[i].getLastName() << "|" 
-		<< std::setw(10) << contacts[i].getNickname() 
+		<< std::setw(10) << contacts[i].getFirstName().substr(0, 9) << "|"  
+		<< std::setw(10) << contacts[i].getLastName().substr(0, 9) << "|" 
+		<< std::setw(10) << contacts[i].getNickname().substr(0, 9) 
 		<< std::endl;
 		i++;
 	} while (i < MaxNum);
 	std::cout << std::endl;
+	std::cout << "Please enter the index of the contact to display: ";
+	std::cin >> index;
+	if (index <= 0 || index > MaxNum)
+		std::cout << "Index is out of range. Only " << MaxNum << " contact/s is/are available!" << std::endl;
+	else
+	{
+		std::cout << "First Name: " << contacts[index - 1].getFirstName() << std::endl;
+		std::cout << "Last Name: " << contacts[index - 1].getLastName() << std::endl;
+		std::cout << "Nickname: " << contacts[index - 1].getNickname() << std::endl;
+		std::cout << "Phone Number: " << contacts[index - 1].getPhoneNumber() << std::endl;
+		std::cout << "Darkest Secret: " << contacts[index - 1].getDarkestSecret() << std::endl;
+	}
 	return ;
 }
