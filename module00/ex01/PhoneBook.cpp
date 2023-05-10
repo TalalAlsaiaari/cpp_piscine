@@ -15,6 +15,8 @@
 PhoneBook::PhoneBook(void)
 {
 	std::cout << "PhoneBook Constructor called" << std::endl;
+	ContactNum = 0;
+	MaxNum = 0;
 	return ;
 }
 
@@ -26,7 +28,6 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::addContact(void)
 {
-	// ContactNum = 0;
 	std::cout << "Kindly input the information of the contact one field at a time: " << std::endl;
 	// this should be in a loop
 	std::cout << "First Name: ";
@@ -47,24 +48,31 @@ void	PhoneBook::addContact(void)
 	ContactNum++;
 	if (ContactNum == 8)
 		ContactNum = 0;
+	if (ContactNum < MaxNum)
+		MaxNum = 8;
+	else
+		MaxNum = ContactNum;
 	return ;
 }
 
 void	PhoneBook::searchContact(void)
 {
+	int	i = 0;
+	
 	std::cout << std::right << std::setw(10) << "index" << "|" 
 	<< std::setw(10) << "first name" << "|" 
 	<< std::setw(10) << "last name" << "|" 
 	<< std::setw(10) << "nickname" << "|" 
 	<< std::endl;
 	// this should be in a loop
-	for (int i = 0; i < ContactNum; i++)
+	do
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|" 
 		<< std::setw(10) << contacts[i].getFirstName() << "|"  
 		<< std::setw(10) << contacts[i].getLastName() << "|" 
 		<< std::setw(10) << contacts[i].getNickname() << "|" 
 		<< std::endl;
-	}
+		i++;
+	} while (i < MaxNum);
 	return ;
 }

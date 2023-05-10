@@ -22,7 +22,8 @@ class	PhoneBook
 {
 	private:
 		Contact 	contacts[8];
-		static int			ContactNum;
+		int			ContactNum;
+		int			MaxNum;
 
 	public:
 		PhoneBook(void);
