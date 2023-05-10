@@ -14,13 +14,11 @@
 
 Contact::Contact()
 {
-	std::cout << "Contact Construcor called" << std::endl;
 	return ;
 }
 
 Contact::~Contact()
 {
-	std::cout << "Contact Destructor called" << std::endl;
 	return ;
 }
 

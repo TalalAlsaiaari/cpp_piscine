@@ -18,25 +18,24 @@ int	main(void)
 	PhoneBook	phonebook;
 	std::string	buff;
 
+	std::cout << "\nWelcome to your Phonebook!\n" << std::endl;
 	while (true)
 	{
-		std::cout << "Enter a command: ";
+		std::cout << "Please enter a command: ";
 		std::getline(std::cin, buff);
 		if (std::cin.eof())
 			return (1);
 		if (buff == "ADD")
-		{
-			std::cout << "Add func" << std::endl;
 			phonebook.addContact();
-		}
 		else if (buff == "SEARCH")
-		{
-			std::cout << "search func" << std::endl;
 			phonebook.searchContact();
-		}
 		else if (buff == "EXIT")
+		{
+			std::cout << "Say goodbye to all of your contacts :)" << std::endl;
 			break ;
+		}
+		else
+			std::cout << "\nInvalid command! Please use ADD, SEARCH or EXIT to quit.\n" << std::endl;
 	}
-	
 	return 0;
 }

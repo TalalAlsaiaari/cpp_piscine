@@ -14,7 +14,6 @@
 
 PhoneBook::PhoneBook(void)
 {
-	std::cout << "PhoneBook Constructor called" << std::endl;
 	ContactNum = 0;
 	MaxNum = 0;
 	return ;
@@ -22,28 +21,25 @@ PhoneBook::PhoneBook(void)
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "PhoneBook Destructor called" << std::endl;
 	return ;
 }
 
 void	PhoneBook::addContact(void)
 {
-	std::cout << "Kindly input the information of the contact one field at a time: " << std::endl;
-	// this should be in a loop
-	std::cout << "First Name: ";
+	std::cout << "\nKindly input the information of the contact one field at a time: " << std::endl;
+	std::cout << std::endl;
+	std::cout << "\tFirst Name: ";
 	contacts[ContactNum].setFirstName();
-	std::cout << std::endl;
-	std::cout << "Last Name: ";
+	std::cout << "\tLast Name: ";
 	contacts[ContactNum].setLastName();
-	std::cout << std::endl;
-	std::cout << "Nickname: ";
+	std::cout << "\tNickname: ";
 	contacts[ContactNum].setNickname();
-	std::cout << std::endl;
-	std::cout << "Phone number: ";
+	std::cout << "\tPhone number: ";
 	contacts[ContactNum].setPhoneNumber();
-	std::cout << std::endl;
-	std::cout << "Darkest secret: ";
+	std::cout << "\tDarkest secret: ";
 	contacts[ContactNum].setDarkestSecret();
+	std::cout << std::endl;
+	std::cout << "Information of " << contacts[ContactNum].getFirstName() << " is now saved with index " << ContactNum + 1 << std::endl;
 	std::cout << std::endl;
 	ContactNum++;
 	if (ContactNum == 8)
@@ -59,20 +55,21 @@ void	PhoneBook::searchContact(void)
 {
 	int	i = 0;
 	
+	std::cout << std::endl;
 	std::cout << std::right << std::setw(10) << "index" << "|" 
 	<< std::setw(10) << "first name" << "|" 
 	<< std::setw(10) << "last name" << "|" 
-	<< std::setw(10) << "nickname" << "|" 
+	<< std::setw(10) << "nickname"  
 	<< std::endl;
-	// this should be in a loop
 	do
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|" 
 		<< std::setw(10) << contacts[i].getFirstName() << "|"  
 		<< std::setw(10) << contacts[i].getLastName() << "|" 
-		<< std::setw(10) << contacts[i].getNickname() << "|" 
+		<< std::setw(10) << contacts[i].getNickname() 
 		<< std::endl;
 		i++;
 	} while (i < MaxNum);
+	std::cout << std::endl;
 	return ;
 }
