@@ -6,12 +6,11 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:46:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/11 13:08:54 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:31:57 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <string>
 
 PhoneBook::PhoneBook(void)
 {
@@ -80,7 +79,8 @@ void	PhoneBook::addContact(void)
 void	PhoneBook::searchContact(void)
 {
 	int	i = 0;
-	int index;
+	// int index;
+	std::string	index;
 	
 	if (MaxNum == 0)
 	{
@@ -115,18 +115,20 @@ void	PhoneBook::searchContact(void)
 		i++;
 	} while (i < MaxNum);
 	std::cout << std::endl;
-	std::cout << "Please enter the index of the contact to display: ";
-	std::cin >> index;
-	if (index <= 0 || index > MaxNum)
-		std::cout << "\nIndex is out of range. Only " << MaxNum << " contact/s is/are available!" << std::endl;
-	else
+	do
 	{
-		std::cout << "\nFirst Name: " << contacts[index - 1].getFirstName() << std::endl;
-		std::cout << "Last Name: " << contacts[index - 1].getLastName() << std::endl;
-		std::cout << "Nickname: " << contacts[index - 1].getNickname() << std::endl;
-		std::cout << "Phone Number: " << contacts[index - 1].getPhoneNumber() << std::endl;
-		std::cout << "Darkest Secret: " << contacts[index - 1].getDarkestSecret() << std::endl;
-	}
+		std::cout << "Please enter the index of the contact to display: ";
+		std::cin >> index;
+		if (index.find_first_not_of("0123456789") != std::string::npos)
+			std::cout << "\nInvalid index. Only positive digits are allowed\n" << std::endl;
+		else if (index[0] - '0' == 0 || index[0] - '0' > MaxNum || index.length() > 1)
+			std::cout << "\nIndex is out of range. Only " << MaxNum << " contact/s is/are available!\n" << std::endl;
+	} while (index.find_first_not_of("0123456789") != std::string::npos || (index[0] - '0' == 0 || index[0] - '0' > MaxNum) || index.length() > 1);
+	std::cout << "\nFirst Name: " << contacts[index[0] - '0' - 1].getFirstName() << std::endl;
+	std::cout << "Last Name: " << contacts[index[0] - '0' - 1].getLastName() << std::endl;
+	std::cout << "Nickname: " << contacts[index[0] - '0' - 1].getNickname() << std::endl;
+	std::cout << "Phone Number: " << contacts[index[0] - '0' - 1].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret: " << contacts[index[0] - '0' - 1].getDarkestSecret() << std::endl;
 	std::cout << std::endl;
 	std::cin.ignore(1, '\n');
 	return ;
