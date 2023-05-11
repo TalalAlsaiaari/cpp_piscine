@@ -6,11 +6,12 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:46:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/11 11:09:11 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/11 13:08:54 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <string>
 
 PhoneBook::PhoneBook(void)
 {
@@ -94,11 +95,23 @@ void	PhoneBook::searchContact(void)
 	<< std::endl;
 	do
 	{
-		std::cout << std::right << std::setw(10) << i + 1 << "|" 
-		<< std::setw(10) << contacts[i].getFirstName().substr(0, 9) << "|"  
-		<< std::setw(10) << contacts[i].getLastName().substr(0, 9) << "|" 
-		<< std::setw(10) << contacts[i].getNickname().substr(0, 9) 
-		<< std::endl;
+		std::cout << std::right << std::setw(10) << i + 1 << "|";
+		if (contacts[i].getFirstName().length() > 10)
+			std::cout << std::right << std::setw(10)
+			<< contacts[i].getFirstName().replace(9, std::string::npos, ".", 0, 1) << "|";
+		else
+			std::cout << std::right << std::setw(10) << contacts[i].getFirstName() << "|";
+		if (contacts[i].getLastName().length() > 10)
+			std::cout << std::right << std::setw(10)
+			<< contacts[i].getLastName().replace(9, std::string::npos, ".", 0, 1) << "|";
+		else
+			std::cout << std::right << std::setw(10) << contacts[i].getLastName() << "|";
+		if (contacts[i].getNickname().length() > 10)
+			std::cout << std::right << std::setw(10)
+			<< contacts[i].getNickname().replace(9, std::string::npos, ".", 0, 1);
+		else
+			std::cout << std::right << std::setw(10) << contacts[i].getNickname();
+		std::cout << std::endl;
 		i++;
 	} while (i < MaxNum);
 	std::cout << std::endl;
