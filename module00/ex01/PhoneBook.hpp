@@ -28,8 +28,8 @@ class	PhoneBook
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		void	addContact(void);
-		void	searchContact(void);
+		int	addContact(void);
+		int	searchContact(void);
 };
 
 #endif

@@ -24,7 +24,7 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::addContact(void)
+int	PhoneBook::addContact(void)
 {
 	std::cout << "\nKindly input the information of the contact one field at a time: " << std::endl;
 	std::cout << std::endl;
@@ -32,6 +32,8 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "\tFirst Name: ";
 		contacts[ContactNum].setFirstName();
+		if (std::cin.eof())
+			return -1;
 		if (contacts[ContactNum].getFirstName().empty())
 			std::cout << "\t\tCannot be empty!\n";
 	} while (contacts[ContactNum].getFirstName().empty());
@@ -39,6 +41,8 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "\tLast Name: ";
 		contacts[ContactNum].setLastName();
+		if (std::cin.eof())
+			return -1;
 		if (contacts[ContactNum].getLastName().empty())
 			std::cout << "\t\tCannot be empty!\n";
 	} while (contacts[ContactNum].getLastName().empty());
@@ -46,6 +50,8 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "\tNickname: ";
 		contacts[ContactNum].setNickname();
+		if (std::cin.eof())
+			return -1;
 		if (contacts[ContactNum].getNickname().empty())
 			std::cout << "\t\tCannot be empty!\n";
 	} while (contacts[ContactNum].getNickname().empty());
@@ -53,6 +59,8 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "\tPhone Number: ";
 		contacts[ContactNum].setPhoneNumber();
+		if (std::cin.eof())
+			return -1;
 		if (contacts[ContactNum].getPhoneNumber().empty())
 			std::cout << "\t\tCannot be empty!\n";
 	} while (contacts[ContactNum].getPhoneNumber().empty());
@@ -60,6 +68,8 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "\tDarkest Secret: ";
 		contacts[ContactNum].setDarkestSecret();
+		if (std::cin.eof())
+			return -1;
 		if (contacts[ContactNum].getDarkestSecret().empty())
 			std::cout << "\t\tCannot be empty!\n";
 	} while (contacts[ContactNum].getDarkestSecret().empty());
@@ -73,19 +83,18 @@ void	PhoneBook::addContact(void)
 		MaxNum = 8;
 	else
 		MaxNum = ContactNum;
-	return ;
+	return 0;
 }
 
-void	PhoneBook::searchContact(void)
+int	PhoneBook::searchContact(void)
 {
 	int	i = 0;
-	// int index;
 	std::string	index;
 	
 	if (MaxNum == 0)
 	{
 		std::cout << "\nNo contacts available to display!\n" << std::endl;
-		return ;
+		return 0;
 	}
 	std::cout << std::endl;
 	std::cout << std::right << std::setw(10) << "index" << "|" 
@@ -119,6 +128,8 @@ void	PhoneBook::searchContact(void)
 	{
 		std::cout << "Please enter the index of the contact to display: ";
 		std::cin >> index;
+		if (std::cin.eof())
+			return -1;
 		if (index.find_first_not_of("0123456789") != std::string::npos)
 			std::cout << "\nInvalid index. Only positive digits are allowed\n" << std::endl;
 		else if (index[0] - '0' == 0 || index[0] - '0' > MaxNum || index.length() > 1)
@@ -131,5 +142,5 @@ void	PhoneBook::searchContact(void)
 	std::cout << "Darkest Secret: " << contacts[index[0] - '0' - 1].getDarkestSecret() << std::endl;
 	std::cout << std::endl;
 	std::cin.ignore(1, '\n');
-	return ;
+	return 0;
 }

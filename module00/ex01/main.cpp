@@ -17,6 +17,7 @@ int	main(void)
 {
 	PhoneBook	phonebook;
 	std::string	buff;
+	int			err;
 
 	std::cout << "\nWelcome to your Phonebook!\n" << std::endl;
 	while (true)
@@ -28,9 +29,17 @@ int	main(void)
 		if (buff != "ADD" && buff != "SEARCH" && buff != "EXIT")
 			std::cout << "\nInvalid command! Please use ADD, SEARCH or EXIT to quit.\n" << std::endl;
 		if (buff == "ADD")
-			phonebook.addContact();
+		{
+			err = phonebook.addContact();
+			if (err == -1)
+				break ;
+		}
 		else if (buff == "SEARCH")
-			phonebook.searchContact();
+		{
+			err = phonebook.searchContact();
+			if (err == -1)
+				break ;
+		}
 		else if (buff == "EXIT")
 		{
 			std::cout << "Say goodbye to all of your contacts :)" << std::endl;
