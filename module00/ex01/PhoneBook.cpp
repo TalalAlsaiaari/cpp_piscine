@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:46:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/10 15:21:43 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/11 11:09:11 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,41 @@ void	PhoneBook::addContact(void)
 {
 	std::cout << "\nKindly input the information of the contact one field at a time: " << std::endl;
 	std::cout << std::endl;
-	while (contacts[ContactNum].getFirstName().empty())
+	do
 	{
 		std::cout << "\tFirst Name: ";
 		contacts[ContactNum].setFirstName();
 		if (contacts[ContactNum].getFirstName().empty())
 			std::cout << "\t\tCannot be empty!\n";
-	}
-	while (contacts[ContactNum].getLastName().empty())
+	} while (contacts[ContactNum].getFirstName().empty());
+	do
 	{
 		std::cout << "\tLast Name: ";
 		contacts[ContactNum].setLastName();
 		if (contacts[ContactNum].getLastName().empty())
 			std::cout << "\t\tCannot be empty!\n";
-	}
-	while (contacts[ContactNum].getNickname().empty())
+	} while (contacts[ContactNum].getLastName().empty());
+	do
 	{
 		std::cout << "\tNickname: ";
 		contacts[ContactNum].setNickname();
 		if (contacts[ContactNum].getNickname().empty())
 			std::cout << "\t\tCannot be empty!\n";
-	}
-	while (contacts[ContactNum].getPhoneNumber().empty())
+	} while (contacts[ContactNum].getNickname().empty());
+	do
 	{
 		std::cout << "\tPhone Number: ";
 		contacts[ContactNum].setPhoneNumber();
 		if (contacts[ContactNum].getPhoneNumber().empty())
 			std::cout << "\t\tCannot be empty!\n";
-	}
-	while (contacts[ContactNum].getDarkestSecret().empty())
+	} while (contacts[ContactNum].getPhoneNumber().empty());
+	do
 	{
 		std::cout << "\tDarkest Secret: ";
 		contacts[ContactNum].setDarkestSecret();
 		if (contacts[ContactNum].getDarkestSecret().empty())
 			std::cout << "\t\tCannot be empty!\n";
-	}
+	} while (contacts[ContactNum].getDarkestSecret().empty());
 	std::cout << std::endl;
 	std::cout << "Information of " << contacts[ContactNum].getFirstName() << " is now saved under index " << ContactNum + 1 << std::endl;
 	std::cout << std::endl;
@@ -81,6 +81,11 @@ void	PhoneBook::searchContact(void)
 	int	i = 0;
 	int index;
 	
+	if (MaxNum == 0)
+	{
+		std::cout << "\nNo contacts available to display!\n" << std::endl;
+		return ;
+	}
 	std::cout << std::endl;
 	std::cout << std::right << std::setw(10) << "index" << "|" 
 	<< std::setw(10) << "first name" << "|" 
@@ -100,14 +105,16 @@ void	PhoneBook::searchContact(void)
 	std::cout << "Please enter the index of the contact to display: ";
 	std::cin >> index;
 	if (index <= 0 || index > MaxNum)
-		std::cout << "Index is out of range. Only " << MaxNum << " contact/s is/are available!" << std::endl;
+		std::cout << "\nIndex is out of range. Only " << MaxNum << " contact/s is/are available!" << std::endl;
 	else
 	{
-		std::cout << "First Name: " << contacts[index - 1].getFirstName() << std::endl;
+		std::cout << "\nFirst Name: " << contacts[index - 1].getFirstName() << std::endl;
 		std::cout << "Last Name: " << contacts[index - 1].getLastName() << std::endl;
 		std::cout << "Nickname: " << contacts[index - 1].getNickname() << std::endl;
 		std::cout << "Phone Number: " << contacts[index - 1].getPhoneNumber() << std::endl;
 		std::cout << "Darkest Secret: " << contacts[index - 1].getDarkestSecret() << std::endl;
 	}
+	std::cout << std::endl;
+	std::cin.ignore(1, '\n');
 	return ;
 }
