@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:06:04 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/02/25 19:21:45 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/12 09:20:25 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int ac, char **av)
 			*it = toupper(*it);
 			std::cout << *it;
 		}
+		if (av[i] && av[i + 1])
+			std::cout << ' ';
 	}
 	std::cout << std::endl;
 	return 0;

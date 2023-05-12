@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 19:46:32 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/03/16 20:47:29 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/12 09:15:05 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ RM = rm -rf
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(FLAGS) $^ -o $@
 	
 clean :
 	$(RM) $(OBJS)
