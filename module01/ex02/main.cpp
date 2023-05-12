@@ -15,6 +15,14 @@
 int	main()
 {
 	std::string		str = "HI THIS IS BRAIN.";
-	std::string*	strPTR;
+	std::string*	strPTR = &str;
+	std::string&	strREF = str;
+
+	std::cout << "Address of the string variable: " << &str << std::endl;
+	std::cout << "Address of the pointer to the string: " << &strPTR << std::endl;
+	std::cout << "Adress of the reference to the string: " << &strREF << std::endl;
+	std::cout << "Value of the string variable: " << str << std::endl;
+	std::cout << "Value of the pointer to the string: " << strPTR << std::endl;
+	std::cout << "Value of the reference to the string: " << strREF << std::endl;
 	return 0;
 }
