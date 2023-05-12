@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:19:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/12 11:13:03 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:42:25 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
+#include <string>
 
 class	Zombie
 {
@@ -23,7 +24,8 @@ class	Zombie
 	public:
 		void		announce(void);
 		std::string	getZombieName(void) const;
-		void		setZombieName(std::string s);		
+		void		setZombieName(std::string s);	
+			
 		Zombie(void);
 		~Zombie(void);
 };
