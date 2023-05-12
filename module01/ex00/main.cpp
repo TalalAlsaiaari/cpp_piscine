@@ -15,11 +15,13 @@
 int	main()
 {
 	Zombie	zombie;
+	Zombie	*new_Zombie;
 
 	zombie.setZombieName("Foo");
 	zombie.announce();
 	randomChump("randomChump");
-	zombie = *newZombie("newZombie");
-	zombie.announce();
+	new_Zombie = newZombie("newZombie");
+	new_Zombie->announce();
+	delete new_Zombie;
 	return 0;
 }
