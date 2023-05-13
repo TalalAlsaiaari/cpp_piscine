@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:42:44 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/12 16:45:44 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/13 12:49:44 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string s) : name(s), humanBWeapon(NULL)
+HumanB::HumanB(std::string name) : name(name), weapon(NULL)
 {
 	return ;
 }
@@ -22,33 +22,33 @@ HumanB::~HumanB(void)
 	return ;
 }
 
-std::string	HumanB::getName(void) const
-{
-	return this->name;
-}
+// std::string	HumanB::getName(void) const
+// {
+// 	return this->name;
+// }
 
-void		HumanB::setName(std::string s)
-{
-	this->name = s;
-	return ;
-}
+// void		HumanB::setName(std::string s)
+// {
+// 	this->name = s;
+// 	return ;
+// }
 
-std::string	HumanB::getWeapon(void) const
-{
-	return this->humanBWeapon->getType();
-}
+// std::string	HumanB::getWeapon(void) const
+// {
+// 	return this->humanBWeapon->getType();
+// }
 
-void		HumanB::setWeapon(Weapon weap)
+void		HumanB::setWeapon(Weapon weapon)
 {
-	this->humanBWeapon->setType(weap.getType());
+	this->weapon = weapon;
 	return ;
 }
 
 void		HumanB::attack(void)
 {
-	if (humanBWeapon->getType().empty())
-		std::cout << getName() << "is unarmed." << std::endl;
+	if (weapon.getType().empty())
+		std::cout << this->name << "is unarmed." << std::endl;
 	else
-		std::cout << getName() << "attacks with their " << humanBWeapon->getType() << std::endl;
+		std::cout << this->name << "attacks with their " << weapon.getType() << std::endl;
 	return ;
 }

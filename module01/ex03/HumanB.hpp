@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:18:22 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/12 16:45:49 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/13 12:40:43 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class	HumanB
 {
 	private:
 		std::string	name;
-		Weapon		*humanBWeapon;
+		Weapon		weapon;
 
 	public:
-		std::string	getName(void) const;
-		std::string	getWeapon(void) const;
+		// std::string	getName(void) const;
+		// std::string	getWeapon(void) const;
 		void		setWeapon(Weapon);
-		void		setName(std::string);
+		// void		setName(std::string);
 		void		attack(void);
 
 		HumanB(std::string);

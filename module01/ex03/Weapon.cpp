@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:44:22 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/12 16:39:45 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/13 12:34:20 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string s) : type(s)
+Weapon::Weapon(std::string type) : type(type)
 {
 	return ;
 }
@@ -22,13 +22,13 @@ Weapon::~Weapon(void)
 	return ;
 }
 
-std::string const	&Weapon::getType(void)
+std::string const	&Weapon::getType(void) const
 {
 	return this->type;
 }
 
-void				Weapon::setType(std::string s)
+void				Weapon::setType(std::string type)
 {
-	this->type = s;
+	this->type = type;
 	return ;
 }
