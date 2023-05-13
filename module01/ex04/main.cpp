@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:19:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/13 19:58:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/13 20:00:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int ac, char **av)
 	}
 	av++;
 	for (int i = 0; i < ac - 1; i++)
-	args[i] = av[i];
+		args[i] = av[i];
 
 	std::ifstream infile(args[0]);
 	std::cin.rdbuf(infile.rdbuf()); // Redirect std::cin to errors_to_handle.txt
