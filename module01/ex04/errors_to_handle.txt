@@ -4,3 +4,5 @@
 *	if the passed filename cannot be opened.
 *	if output file cannot be created.
 *	if s1 does not exist in the file.
+*	if any of the args are empty or null.
+*	extra new line in the end.

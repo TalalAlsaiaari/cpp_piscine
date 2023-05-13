@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/13 14:15:57 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/13 14:19:27 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/13 18:24:05 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ clean :
 	$(RM) $(OBJS)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) *.replace
 
 re : fclean all
 
