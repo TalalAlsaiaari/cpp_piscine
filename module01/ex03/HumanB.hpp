@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:18:22 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/13 12:40:43 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/13 13:33:09 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ class	HumanB
 {
 	private:
 		std::string	name;
-		Weapon		weapon;
+		Weapon		*weapon;
 
 	public:
-		// std::string	getName(void) const;
-		// std::string	getWeapon(void) const;
-		void		setWeapon(Weapon);
-		// void		setName(std::string);
+		void		setWeapon(Weapon&);
 		void		attack(void);
 
 		HumanB(std::string);
