@@ -1,0 +1,6 @@
+*	if not 3 arguments are passed.
+*	if the passed filename does not exist.
+*	if the passed filename is a directory.
+*	if the passed filename cannot be opened.
+*	if output file cannot be created.
+*	if s1 does not exist in the file.
