@@ -1,4 +1,4 @@
-*	if not 3 arguments are passed.
+*	if not 3 arguments are if passed.
 *	if the passed filename does not exist.
 *	if the passed filename is a directory.
 *	if the passed filename cannot be opened.
