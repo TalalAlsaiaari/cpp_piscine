@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/13 14:15:57 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/13 18:24:05 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/14 16:41:51 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	main
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp StringReplace.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
