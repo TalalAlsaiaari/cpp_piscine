@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:19:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/13 20:00:04 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:27:21 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av)
 	std::string	args[3];
 	std::size_t	pos = 0;
 
-	if (ac != 4 || !av[2][0] )
+	if (ac != 4)
 	{
 	std::cout << "Invalid number of arguments!" << std::endl;
 	return 1;
@@ -39,16 +39,19 @@ int main(int ac, char **av)
 	{
 		pos = line.find(args[1]);
 		if (pos == std::string::npos)
-			std::cout << line << std::endl;
+			std::cout << line;
 		else
 		{
 			while((pos = line.find(args[1], pos)) != std::string::npos)
 			{
-				line.replace(pos, args[1].length(), args[2]); // This prints the contents of errors_to_handle.txt
+				line.erase(pos, args[1].length());
+				line.insert(pos, args[2]);
 				pos++;
 			}
-			std::cout << line << std::endl;
+			std::cout << line;
 		}
+		if (!std::cin.eof())
+			std::cout << std::endl;
 	}
 	return 0;
 }

@@ -1,8 +1,8 @@
-*	if not 3 arguments are if passed.
-*	if the passed filename does not exist.
+*̶	̶i̶f̶ ̶n̶o̶t̶ ̶3̶ ̶a̶r̶g̶u̶m̶e̶n̶t̶s̶ ̶a̶r̶e̶ ̶i̶f̶ ̶p̶a̶s̶s̶e̶d̶.̶
+̶*	if the passed filename does not exist.
 *	if the passed filename is a directory.
 *	if the passed filename cannot be opened.
 *	if output file cannot be created.
 *	if s1 does not exist in the file.
 *	if any of the args are empty or null.
-*	extra new line in the end.
+*̶	̶e̶x̶t̶r̶a̶ ̶n̶e̶w̶ ̶l̶i̶n̶e̶ ̶i̶n̶ ̶t̶h̶e̶ ̶e̶n̶d̶.̶
