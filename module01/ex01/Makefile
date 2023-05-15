@@ -6,11 +6,11 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 11:44:59 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/12 11:50:09 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/15 12:21:02 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	main
+NAME	=	horde
 
 SRCS	=	main.cpp Zombie.cpp zombieHorde.cpp
 

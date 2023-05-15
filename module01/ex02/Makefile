@@ -6,11 +6,11 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 12:20:35 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/12 12:25:24 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/15 12:24:00 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	main
+NAME	=	refptr
 
 SRCS	=	main.cpp
 

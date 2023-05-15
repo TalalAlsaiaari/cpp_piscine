@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:42:44 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/13 13:35:54 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:32:38 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void		HumanB::setWeapon(Weapon &weapon)
 
 void		HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
+	if (!this->weapon)
+		std::cout << this->name << " attacks with a knuckle sandwich" << std::endl;
+	else
+		std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
 	return ;
 }

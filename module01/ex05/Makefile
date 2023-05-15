@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/14 17:32:45 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/14 17:36:12 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/15 12:39:26 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	main
+NAME	=	harl
 
 SRCS	=	main.cpp Harl.cpp
 

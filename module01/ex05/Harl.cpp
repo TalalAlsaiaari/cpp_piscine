@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 17:41:36 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/14 19:36:05 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:38:48 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ void	Harl::complain(std::string level)
 		ptr = &Harl::warning;
 	else if (level == "ERROR")
 		ptr = &Harl::error;
+	else
+	{
+		std::cout << "GARBAGE" << std::endl;
+		return ;
+	}
 	(harl.*ptr)();
 	return ;
 }
