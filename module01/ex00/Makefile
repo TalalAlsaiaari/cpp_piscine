@@ -6,11 +6,11 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 09:56:59 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/12 11:26:44 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/15 12:16:48 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	main
+NAME	=	zombie
 
 SRCS	=	main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
 
