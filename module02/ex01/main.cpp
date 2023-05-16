@@ -6,15 +6,15 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:15:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/15 20:40:02 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:44:44 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-// the range of values that passed parameter is (-8388608, 8388608 - 0.00390625)
-// calculated by [-2^m-1, 2^m-1 - 2^-n], where n is the fractional bits and m
-// is the 32 - n.
+/* the range of values for the passed parameter is [-8388608, 8388608 - 0.00390625)
+ calculated by [-2^m-1, 2^m-1 - 2^-n], where n is the fractional bits and m
+ is the 32 - n. */
 
 std::ostream& operator<<(std::ostream& output, Fixed const& fixed)
 {

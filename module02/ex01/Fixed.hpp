@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:15:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/15 20:03:29 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:40:18 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <stdlib.h>
 
 class	Fixed
 {
