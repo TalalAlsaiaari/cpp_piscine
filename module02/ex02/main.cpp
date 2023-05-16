@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:15:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/16 13:01:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:05:30 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,14 @@
 int	main()
 {
 	Fixed		a;
-	Fixed const	b( 10 );
-	Fixed const	c( 42.42f );
-	Fixed const	d( b );
-	
-	a = Fixed( 1234.4321f );
+	Fixed const	b( Fixed( -8388609 ) * Fixed( 8388608 ) );
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
