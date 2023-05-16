@@ -6,15 +6,15 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:23:34 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/16 17:37:21 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:21:56 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
-	ClapTrap	a("Big Boy");
+	ScavTrap	a("Big Boy");
 	
 	for(int i = 0; i < 15; i++)
 	{

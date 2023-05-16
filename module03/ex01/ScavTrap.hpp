@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:16:02 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/16 18:45:36 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:05:09 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,12 @@
 
 class ScavTrap : public ClapTrap
 {
-	
+	public:
+		void gaurdGate(void);
+
+		ScavTrap();
+		ScavTrap(std::string);
+		ScavTrap(const ScavTrap&);
+		ScavTrap& operator=(const ScavTrap&);
+		~ScavTrap();
 };

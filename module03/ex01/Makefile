@@ -6,13 +6,13 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:19:36 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/16 16:23:12 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/16 19:25:49 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ClapTrap
+NAME	=	ScavTrap
 
-SRCS	=	main.cpp ClapTrap.cpp
+SRCS	=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
