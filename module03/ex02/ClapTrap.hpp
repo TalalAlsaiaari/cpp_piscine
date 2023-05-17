@@ -31,5 +31,5 @@ class ClapTrap
 		ClapTrap(std::string);
 		ClapTrap(const ClapTrap&);
 		ClapTrap& operator=(const ClapTrap&);
-		~ClapTrap();
+		virtual ~ClapTrap();
 };

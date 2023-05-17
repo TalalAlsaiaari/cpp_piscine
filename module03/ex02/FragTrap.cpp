@@ -32,7 +32,7 @@ FragTrap::FragTrap(std::string Name)
 	return ;
 }
 
-FragTrap::FragTrap(const FragTrap& copy)
+FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 {
 	std::cout << "FragTrap Copy constructor called" << std::endl;
 	*this = copy;
