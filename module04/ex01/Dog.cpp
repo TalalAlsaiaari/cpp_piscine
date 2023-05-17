@@ -14,14 +14,15 @@
 
 Dog::Dog(void)
 {
-	std::cout << "Dog constructor called" << std::endl;
+	std::cout << "Dog default constructor called" << std::endl;
 	this->type = "Dog";
 	this->brain = new Brain();
 	return ;
 }
 
-Dog::Dog(Dog& deepCopy)
+Dog::Dog(Dog& deepCopy) : Animal(deepCopy)
 {
+	std::cout << "Dog parameterized constructor called" << std::endl;
 	this->type = deepCopy.type;
 	this->brain = new Brain();
 	*this->brain = *(deepCopy.brain);

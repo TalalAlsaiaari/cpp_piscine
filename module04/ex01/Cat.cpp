@@ -14,14 +14,15 @@
 
 Cat::Cat(void)
 {
-	std::cout << "Cat constructor called" << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 	this->type = "Cat";
 	this->brain = new Brain();
 	return ;
 }
 
-Cat::Cat(Cat& deepCopy)
+Cat::Cat(Cat& deepCopy) : Animal(deepCopy)
 {
+	std::cout << "Cat parametrized constructor called" << std::endl;
 	this->type = deepCopy.type;
 	this->brain = new Brain();
 	*this->brain = *(deepCopy.brain);
