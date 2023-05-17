@@ -20,7 +20,7 @@ Dog::Dog(void)
 	return ;
 }
 
-Dog::Dog(Dog& deepCopy)
+Dog::Dog(Dog& deepCopy) : Animal(deepCopy)
 {
 	this->type = deepCopy.type;
 	this->brain = new Brain();

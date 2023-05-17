@@ -20,7 +20,7 @@ Cat::Cat(void)
 	return ;
 }
 
-Cat::Cat(Cat& deepCopy)
+Cat::Cat(Cat& deepCopy) : Animal(deepCopy)
 {
 	this->type = deepCopy.type;
 	this->brain = new Brain();
