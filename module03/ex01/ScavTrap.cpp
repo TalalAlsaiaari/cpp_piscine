@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:06:07 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/16 19:24:14 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:54:51 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,23 @@ ScavTrap::~ScavTrap(void)
 	return ;
 }
 
-// void	ClapTrap::attack(const std::string& target)
-// {
-// 	if (this->energyPoints && this->hitPoints)
-// 	{
-// 		std::cout << "ScavTrap " << this->Name << " attacks " << target << ", causing "
-// 			<< this->attackDamage << " points of damage!" << std::endl;
-// 		this->energyPoints--;
-// 	}
-// 	else if (!this->energyPoints)
-// 		std::cout << "ScavTrap " << this->Name << " does not have energy left!" << std::endl;
-// 	else if (!this->hitPoints)
-// 		std::cout << "ScavTrap " << this->Name << " does not have hit points left!" << std::endl;
-// 	return ;
-// }
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->energyPoints && this->hitPoints)
+	{
+		std::cout << "ScavTrap " << this->Name << " attacks " << target << ", causing "
+			<< this->attackDamage << " points of damage!" << std::endl;
+		this->energyPoints--;
+	}
+	else if (!this->energyPoints)
+		std::cout << "ScavTrap " << this->Name << " does not have energy left!" << std::endl;
+	else if (!this->hitPoints)
+		std::cout << "ScavTrap " << this->Name << " does not have hit points left!" << std::endl;
+	return ;
+}
 
 void	ScavTrap::gaurdGate(void)
 {
-	std::cout << "Scav Trap " << this->Name << " is now in Gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << this->Name << " is now in Gate keeper mode." << std::endl;
 	return ;
 }
