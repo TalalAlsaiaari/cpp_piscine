@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:52:23 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 17:26:10 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:57:06 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,15 @@ int	main()
 	// const Animal* meta = new Animal(); // this will cause a compiling error, since animal is now an abstract class containing pure virtual func;
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	Animal* a = new Cat();
+	Animal* b = new Cat();
 	const WrongAnimal* k = new WrongCat();
+	const Cat king;
+	Cat queen(king);
 	
+	*a = *b;
+	a->makeSound();
+	b->makeSound();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << k->getType() << " " << std::endl;
@@ -35,5 +42,7 @@ int	main()
 	delete j;
 	delete i;
 	delete k;
+	delete a;
+	delete b;
 	return 0;
 }

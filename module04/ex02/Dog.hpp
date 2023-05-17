@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:30:02 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 16:59:17 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:02:41 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class Dog : public Animal
 		void	makeSound(void) const;
 
 		Dog(void);
-		Dog(Dog&);
 		Dog(const Dog&);
 		const Dog& operator=(const Dog&);
 		~Dog(void);

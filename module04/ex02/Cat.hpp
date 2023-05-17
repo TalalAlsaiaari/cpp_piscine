@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:13:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 16:56:29 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:00:38 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class Cat : public Animal
 		void	makeSound(void) const;
 
 		Cat(void);
-		Cat(Cat&);
 		Cat(const Cat&);
 		const Cat& operator=(const Cat&);
 		~Cat(void);

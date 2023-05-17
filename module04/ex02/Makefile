@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 12:48:07 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/17 17:27:34 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/17 17:39:20 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 CC		=	c++
 
-FLAGS	=	-std=c++98 -Wall -Wextra -Werror
+FLAGS	=	-g -std=c++98 -Wall -Wextra -Werror
 
 RM		=	rm -rf
 
