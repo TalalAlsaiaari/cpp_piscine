@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:16:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 16:29:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:58:39 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ Cat::Cat(void)
 	this->type = "Cat";
 	this->brain = new Brain();
 	return ;
+}
+
+Cat::Cat(Cat& deepCopy)
+{
+	this->type = deepCopy.type;
+	this->brain = new Brain();
+	*this->brain = *(deepCopy.brain);
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy)

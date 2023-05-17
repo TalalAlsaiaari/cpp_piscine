@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:30:39 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 16:29:00 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:00:19 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ Dog::Dog(void)
 	this->type = "Dog";
 	this->brain = new Brain();
 	return ;
+}
+
+Dog::Dog(Dog& deepCopy)
+{
+	this->type = deepCopy.type;
+	this->brain = new Brain();
+	*this->brain = *(deepCopy.brain);
 }
 
 Dog::Dog(const Dog& copy) : Animal(copy)
