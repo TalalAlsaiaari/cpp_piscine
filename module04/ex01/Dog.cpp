@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:30:39 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 17:00:19 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:01:59 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,12 @@ Dog::Dog(void)
 	return ;
 }
 
-Dog::Dog(Dog& deepCopy) : Animal(deepCopy)
-{
-	std::cout << "Dog parameterized constructor called" << std::endl;
-	this->type = deepCopy.type;
-	this->brain = new Brain();
-	*this->brain = *(deepCopy.brain);
-}
-
 Dog::Dog(const Dog& copy) : Animal(copy)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	*this = copy;
+	this->type = copy.type;
+	this->brain = new Brain();
+	*this->brain = *(copy.brain);	
 	return ;
 }
 
@@ -48,6 +42,8 @@ const Dog&	Dog::operator=(const Dog& op)
 	if (this == &op)
 		return *this;
 	this->type = op.type;
+	this->brain = new Brain();
+	*this->brain = *(op.brain);
 	return *this;
 }
 

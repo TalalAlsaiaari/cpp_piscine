@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:16:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 16:58:39 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:00:07 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,12 @@ Cat::Cat(void)
 	return ;
 }
 
-Cat::Cat(Cat& deepCopy) : Animal(deepCopy)
-{
-	std::cout << "Cat parametrized constructor called" << std::endl;
-	this->type = deepCopy.type;
-	this->brain = new Brain();
-	*this->brain = *(deepCopy.brain);
-}
-
 Cat::Cat(const Cat& copy) : Animal(copy)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = copy;
+	this->type = copy.type;
+	this->brain = new Brain();
+	*this->brain = *(copy.brain);
 	return ;
 }
 
@@ -48,6 +42,8 @@ const Cat&	Cat::operator=(const Cat& op)
 	if (this == &op)
 		return *this;
 	this->type = op.type;
+	this->brain = new Brain();
+	*this->brain = *(op.brain);
 	return *this;
 }
 
