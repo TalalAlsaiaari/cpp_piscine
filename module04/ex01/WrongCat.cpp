@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:01:26 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 14:06:35 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:11:23 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ WrongCat::WrongCat(void)
 	return ;
 }
 
-WrongCat::WrongCat(const WrongCat& copy)
+WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy)
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	*this = copy;

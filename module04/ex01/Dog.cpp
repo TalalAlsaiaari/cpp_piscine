@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:30:39 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 13:35:31 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:29:00 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ Dog::Dog(void)
 {
 	std::cout << "Dog constructor called" << std::endl;
 	this->type = "Dog";
+	this->brain = new Brain();
 	return ;
 }
 
-Dog::Dog(const Dog& copy)
+Dog::Dog(const Dog& copy) : Animal(copy)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = copy;
@@ -29,6 +30,7 @@ Dog::Dog(const Dog& copy)
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete this->brain;
 	return ;
 }
 
