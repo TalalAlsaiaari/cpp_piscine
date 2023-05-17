@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:24:15 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 12:27:38 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:46:12 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ FragTrap::~FragTrap(void)
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << this->Name << " requests a positive round of high fived" << std::endl;
+	std::cout << "FragTrap " << this->Name << " requests a positive round of high fives" << std::endl;
 	return ;
 }
