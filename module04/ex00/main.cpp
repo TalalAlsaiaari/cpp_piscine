@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:52:23 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 14:09:31 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:58:16 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,9 @@ int	main()
 	j->makeSound();
 	meta->makeSound();
 	k->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+	delete k;
 	return 0;
 }

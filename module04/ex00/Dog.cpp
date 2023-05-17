@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:30:39 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 13:35:31 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:53:40 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Dog::Dog(void)
 	return ;
 }
 
-Dog::Dog(const Dog& copy)
+Dog::Dog(const Dog& copy) : Animal(copy)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = copy;

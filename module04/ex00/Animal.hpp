@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:53:06 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 13:37:49 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:06:44 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ class Animal
 		Animal(void);
 		Animal(const Animal&);
 		Animal& operator=(const Animal&);
-		~Animal(void);
+		virtual ~Animal(void); // added virtual to be able to delete pointer to the base class, otherwise there will be leaks
 };

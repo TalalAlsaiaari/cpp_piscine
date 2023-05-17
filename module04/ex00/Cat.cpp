@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:16:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 13:35:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:52:46 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Cat::Cat(void)
 	return ;
 }
 
-Cat::Cat(const Cat& copy)
+Cat::Cat(const Cat& copy) : Animal(copy)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	*this = copy;

@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:00:00 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 14:00:57 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:08:22 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ class WrongAnimal
 		WrongAnimal(void);
 		WrongAnimal(const WrongAnimal&);
 		WrongAnimal& operator=(const WrongAnimal&);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 };
