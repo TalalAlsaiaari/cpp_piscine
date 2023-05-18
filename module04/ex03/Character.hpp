@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 20:50:48 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 21:00:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:50:13 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Character : public ICharacter
 		void	use(int idx, ICharacter& target);
 		
 		Character();
+		Character(std::string);
 		Character(const Character&);
 		Character& operator=(const Character&);
 		~Character();

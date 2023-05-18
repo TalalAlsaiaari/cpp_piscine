@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:07:43 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 22:27:32 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:45:59 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ ICharacter::ICharacter(void)
 {
 	std::cout << "ICharacter default constructor called" << std::endl;
 	this->idx = 0;
+	this->name = "default character";
 	return ;
 }
 

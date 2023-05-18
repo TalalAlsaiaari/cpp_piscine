@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:16:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 17:58:35 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:34:06 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ const Cat&	Cat::operator=(const Cat& op)
 	if (this == &op)
 		return *this;
 	this->type = op.type;
+	delete this->brain;
 	this->brain = new Brain();
 	*this->brain = *(op.brain);
 	return *this;

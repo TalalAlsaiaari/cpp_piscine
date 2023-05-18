@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:26:35 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 21:45:25 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:46:10 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AMateria::AMateria(void)
 {
 	std::cout << "AMateria default constructor called" << std::endl;
-	this->type = "default";
+	this->type = "default materia";
 	return ;
 }
 

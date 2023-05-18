@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:52:23 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 17:03:02 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:33:17 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,22 @@ int	main()
 	j->makeSound();
 	meta->makeSound();
 	k->makeSound();
+
 	delete meta;
 	delete j;
 	delete i;
 	delete k;
+
+	Dog a;
+	std::cout << a.getType() << " " << std::endl;
+
+	Dog b;
+	b = a;
+	std::cout << a.getType() << " " << std::endl;
+
+	
+
+	
+	
 	return 0;
 }
