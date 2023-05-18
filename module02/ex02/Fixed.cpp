@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:18:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/16 15:31:31 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/18 22:09:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ Fixed::Fixed(const Fixed& copy)
  is the 32 - n. */
 Fixed::Fixed(const int n)
 {
+	std::cout << "Parameterized constructor called" << std::endl;
 	if (n < -8388608 || n >= 8388608)
 	{
-		std::cout << "Entered number will cause an overflow!" << std::endl;
-		exit (1);
+		std::cout << "Entered number will cause an overflow! Number will be set to 0" << std::endl;
+		this->raw = 0;
+		return ;
 	}
 	this->raw = roundf(n * (1 << this->bits));
 	return ;
@@ -48,6 +50,13 @@ Fixed::Fixed(const int n)
 
 Fixed::Fixed(const float f)
 {
+	std::cout << "Parameterized constructor called" << std::endl;
+	if (f < -8388608 || f >= 8388607.5f)
+	{		
+		std::cout << "Entered number will cause an overflow! Number will be set to 0" << std::endl;
+		this->raw = 0;
+		return ;
+	}
 	// (1 << this->bits) is exactly the same as 2 ^ this->bits
 	this->raw = roundf(f * (1 << this->bits));
 	return ;
