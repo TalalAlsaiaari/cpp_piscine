@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 20:50:48 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/18 16:50:13 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/19 10:34:59 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Character : public ICharacter
 {
 	public:
 		std::string const & getName() const;
-		void	equip(AMateria* m);
+		void	equip(Materia* m);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
 		

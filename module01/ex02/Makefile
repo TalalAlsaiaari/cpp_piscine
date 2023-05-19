@@ -3,32 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 12:20:35 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/15 12:24:00 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/19 11:06:56 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	refptr
+NAME		=	refptr
 
-SRCS	=	main.cpp
+SRCS		=	main.cpp
 
-OBJS	=	$(SRCS:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
-CC		=	c++
+CC			=	c++
 
-FLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
-RM		=	rm -rf
+RM			=	rm -rf
 
 %.o : %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $^ -o $@
+	$(CC) $(CXXFLAGS) $^ -o $@
 
 clean :
 	$(RM) $(OBJS)

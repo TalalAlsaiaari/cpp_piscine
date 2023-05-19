@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:07:43 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/18 16:45:59 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:11:31 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ICharacter::ICharacter(std::string name)
 ICharacter::ICharacter(const ICharacter& copy)
 {
 	std::cout << "ICharacter copy constructor called" << std::endl;
-	*this->m = *copy.m;
+	*this->inventory = *copy.inventory;
 	this->idx = copy.idx;
 	this->name = copy.name;
 	return ;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Materia.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 19:26:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/19 12:09:03 by talsaiaa         ###   ########.fr       */
+/*   Created: 2023/05/19 10:29:34 by talsaiaa          #+#    #+#             */
+/*   Updated: 2023/05/19 12:09:41 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,20 @@
 
 #include <iostream>
 #include <string>
-#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class AMateria
+class Materia : public AMateria
 {
-	protected:
-		std::string type;
-
+	private:
+	// 	std::string Materia; //should be used to set types
+	Materia* inventory[4];
+	
 	public:
-		AMateria(std::string const &type);
-		AMateria(void);
-		AMateria(const AMateria&);
-		AMateria& operator=(const AMateria&);
-		~AMateria(void);
+		Materia(void);
+		Materia(const Materia&);
+		Materia& operator=(const Materia&);
+		~Materia(void);
 
-		std::string const & getType(void) const; //Returns the materia type
-
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		Materia* clone() const; //returns a new instance of the same type
+		void	use(ICharacter& target); //displays message with name set as target
 };

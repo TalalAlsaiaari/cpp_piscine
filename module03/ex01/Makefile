@@ -3,32 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:19:36 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/16 19:25:49 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/19 12:13:57 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ScavTrap
+NAME		=	ScavTrap
 
-SRCS	=	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
-OBJS	=	$(SRCS:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
-CC		=	c++
+CC			=	c++
 
-FLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
-RM		=	rm -rf
+RM			=	rm -rf
 
 %.o : %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $^ -o $@
+	$(CC) $(CXXFLAGS) $^ -o $@
 
 clean : 
 	$(RM) $(OBJS)
