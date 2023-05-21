@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 20:33:36 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 20:46:11 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:08:54 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 
 class Ice : public AMateria
 {
-	private:
-		std::string	ice; //should be used to set types
-	
 	public:
 		Ice(void);
 		Ice(const Ice&);

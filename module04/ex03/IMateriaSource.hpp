@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:06:07 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 21:22:30 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:21:17 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 #include <string>
 #include "AMateria.hpp"
 
+class AMateria;
+
 class IMateriaSource
 {
 	protected:
 		AMateria* slot[4];
+		int	i;
 	
 	public:
 		virtual ~IMateriaSource(){}

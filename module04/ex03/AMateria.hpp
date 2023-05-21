@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:26:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/19 12:09:03 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:17:35 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <string>
 #include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {

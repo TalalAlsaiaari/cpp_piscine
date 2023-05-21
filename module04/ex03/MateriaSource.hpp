@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:06:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 21:24:00 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:21:53 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,4 @@ class MateriaSource : public IMateriaSource
 		MateriaSource(const MateriaSource&);
 		MateriaSource& operator=(const MateriaSource&);
 		~MateriaSource();
-}
+};

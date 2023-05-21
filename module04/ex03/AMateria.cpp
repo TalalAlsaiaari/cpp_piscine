@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:26:35 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/18 16:46:10 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:31:55 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ AMateria::AMateria(const AMateria& copy)
 	return ;
 }
 
-AMateria&	AMateria::operator=(const AMateria &op)
-{
-	std::cout << "AMateria copy assignment operator called" << std::endl;
-	if (this == &op)
-		return *this;
-	this->type = op.type;
-	return *this;
-}
+// AMateria&	AMateria::operator=(const AMateria &op)
+// {
+// 	std::cout << "AMateria copy assignment operator called" << std::endl;
+// 	if (this == &op)
+// 		return *this;
+// 	this->type = op.type;
+// 	return *this;
+// }
 
 AMateria::~AMateria(void)
 {
@@ -52,3 +52,4 @@ std::string const & AMateria::getType(void) const
 {
 	return this->type;
 }
+

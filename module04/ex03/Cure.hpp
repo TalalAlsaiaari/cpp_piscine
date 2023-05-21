@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 20:41:35 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/17 21:58:27 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:10:53 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 
 class Cure : public AMateria
 {
-	// private:
-	// 	std::string cure; //should be used to set types
-	
 	public:
 		Cure(void);
 		Cure(const Cure&);

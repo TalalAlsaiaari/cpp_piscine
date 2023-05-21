@@ -6,13 +6,13 @@
 #    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 19:00:54 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/05/19 12:16:35 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/05/20 17:43:27 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Materias
 
-SRCS		=	main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp
+SRCS		=	main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp Character.cpp IMateriaSource.cpp MateriaSource.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
