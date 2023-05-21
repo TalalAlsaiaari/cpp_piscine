@@ -26,9 +26,7 @@ int main( void )
     delete i;
 
     Dog basic;
-    {
-        Dog tmp = basic;
-    }
+    Dog tmp = basic;
 
     const Animal* animals[100];
     for ( int i = 0; i < 50; i++ ) {
