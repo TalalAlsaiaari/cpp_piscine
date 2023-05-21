@@ -33,14 +33,14 @@ AMateria::AMateria(const AMateria& copy)
 	return ;
 }
 
-// AMateria&	AMateria::operator=(const AMateria &op)
-// {
-// 	std::cout << "AMateria copy assignment operator called" << std::endl;
-// 	if (this == &op)
-// 		return *this;
-// 	this->type = op.type;
-// 	return *this;
-// }
+AMateria&	AMateria::operator=(const AMateria &op)
+{
+	std::cout << "AMateria copy assignment operator called" << std::endl;
+	if (this == &op)
+		return *this;
+	this->type = op.type;
+	return *this;
+}
 
 AMateria::~AMateria(void)
 {

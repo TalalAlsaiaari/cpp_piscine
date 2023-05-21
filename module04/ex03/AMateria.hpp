@@ -28,10 +28,10 @@ class AMateria
 		AMateria(void);
 		AMateria(const AMateria&);
 		AMateria& operator=(const AMateria&);
-		~AMateria(void);
+		virtual ~AMateria(void);
 
 		std::string const & getType(void) const; //Returns the materia type
 
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target) = 0;
 };

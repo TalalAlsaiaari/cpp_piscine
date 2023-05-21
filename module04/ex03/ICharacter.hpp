@@ -27,7 +27,7 @@ class ICharacter
 		std::string name;
 	
 	public:
-		virtual ~ICharacter() {}
+		virtual ~ICharacter() = 0;
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0; //equip materia at first empty, 0 to 3:
 		virtual void unequip(int idx) = 0; //must not delete the materia

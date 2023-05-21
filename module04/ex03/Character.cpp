@@ -58,41 +58,64 @@ Character&	Character::operator=(const Character& op)
 Character::~Character()
 {
 	std::cout << "Character destructor called" << std::endl;
-	// for(int j = 0; j < 4; j++)
-	// 	if(this->m[j])
-	// 		delete this->m[j];
+	for(int j = 0; j < 4; j++)
+		if(this->m[j])
+			delete this->m[j];
 	return ;
 }
 
 std::string	const & Character::getName() const
 {
-	std::cout << "Character getName function called" << std::endl;
+	// std::cout << "Character getName function called" << std::endl;
 	return this->name;
 }
 
 void	Character::equip(AMateria* m)
 {
-	std::cout << "Character equip function called" << std::endl;
+	// std::cout << "Character equip function called" << std::endl;
 	// equip passed param to the first empty slot in inventory of 4 Matrias.
 	// if full, don't do anything but cannot have bugs or leaks.
-	this->m[this->i] = m;
-	i++;
+	if (this->i == 5)
+	{
+		std::cout << "Inventory is full!" << std::endl;
+		return ;
+	}
+	if (this->m[this->i] == NULL)
+	{
+		this->m[this->i] = m;
+		this->i++;
+		return ;
+	}
+	std::cout << "Cannot equip Materia" << std::endl;
 	return ;
 }
 
 void	Character::unequip(int idx)
 {
-	std::cout << "Character unequip function called" << std::endl;
+	// std::cout << "Character unequip function called" << std::endl;
 	// unequip Materia at passed param. if index doesn't exist, do nothing but
 	// bugs and leaks are not allowed. MUST NOT delete Materia.
 	// save the memory of the unequipped materia before unequipping.
-	(void)idx;
+	if (this->m[idx])
+	{
+		this->m[idx] = NULL;
+		delete this->m[idx];
+		this->i--;
+		return ;
+	}
+	std::cout << "Materia doesn't exist" << std::endl;
 	return ;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	std::cout << "Character use function called" << std::endl;
+	// std::cout << "Character use function called" << std::endl;
 	// use Materia at idx passed, and pass name to AMatria use.
-	this->m[idx]->use(target);
+	if (this->m[idx])
+	{
+		this->m[idx]->use(target);
+		return ;
+	}
+	std::cout << "Cannot use non-existing Materia " << std::endl;
+	return ;
 }

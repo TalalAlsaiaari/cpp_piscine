@@ -45,9 +45,9 @@ ICharacter&	ICharacter::operator=(const ICharacter& op)
 	return *this;
 }
 
-// ICharacter::~ICharacter(void)
-// {
-// 	std::cout << "ICharacter destructor called" << std::endl;
-// 	return ;
-// }
+ICharacter::~ICharacter(void)
+{
+	std::cout << "ICharacter destructor called" << std::endl;
+	return ;
+}
 

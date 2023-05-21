@@ -25,7 +25,7 @@ class IMateriaSource
 		int	i;
 	
 	public:
-		virtual ~IMateriaSource(){}
+		virtual ~IMateriaSource() = 0;
 		virtual void	learnMateria(AMateria*) = 0; //copies the materia passed and store it so it can be cloned later
 		virtual AMateria* createMateria(std::string const & type) = 0; //returns new materia which is a copy of the materia previously learned whose type same as the passed. return 0 if type is unknown
 		

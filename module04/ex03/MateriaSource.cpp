@@ -16,6 +16,8 @@ MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource constructor called" << std::endl;
 	this->i = 0;
+	for (int j = 0; j < 4; j++)
+		this->slot[j] = NULL;
 	return ;
 }
 
@@ -32,29 +34,41 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& op)
 	if (this == &op)
 		return *this;
 	this->i = op.i;
+	for (int j = 0; j < 4; j++)
+		this->slot[j] = op.slot[j];
 	return *this;
 }
 
 MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource destructor called" << std::endl;
+	for(int j = 0; j < 4; j++)
+		if(this->slot[j])
+			delete this->slot[j];
 	return ;
 }
 
 void	MateriaSource::learnMateria(AMateria* m)
 {
-	std::cout << "learnMateria function called" << std::endl;
+	// std::cout << "learnMateria function called" << std::endl;
+	if (this->i == 4)
+	{
+		std::cout << "Cannot learn Materia as inventory is full" << std::endl;
+		return ;
+	}
 	this->slot[this->i] = m;
-	i++;
+	this->i++;
+	return ;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
-	std::cout << "createMateria function called" << std::endl;
-	for (int i = 0; i < 4; i++)
+	// std::cout << "createMateria function called" << std::endl;
+	for (int i = 0; i < this->i; i++)
 	{
 		if (type == this->slot[i]->getType())
 			return this->slot[i]->clone();
 	}
+	std::cout << "Type is unknown" << std::endl;
 	return 0;
 }

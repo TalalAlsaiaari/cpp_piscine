@@ -35,8 +35,8 @@ IMateriaSource&	IMateriaSource::operator=(const IMateriaSource& op)
 	return *this;
 }
 
-// IMateriaSource::~IMateriaSource()
-// {
-// 	std::cout << "IMateriaSource destructor called" << std::endl;
-// 	return ;
-// }
+IMateriaSource::~IMateriaSource()
+{
+	std::cout << "IMateriaSource destructor called" << std::endl;
+	return ;
+}
