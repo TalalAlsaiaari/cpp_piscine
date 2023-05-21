@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:15:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/18 22:07:39 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/21 15:28:31 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main()
 	Fixed const	b( 10 );
 	Fixed const	c( 42.42f );
 	Fixed const	d( b );
-	Fixed const	e( 8388607.5f );
+	Fixed const	e( 22.5f );
 	Fixed f(e);
 	Fixed g;
 	

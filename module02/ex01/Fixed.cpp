@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:18:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/19 10:04:13 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/05/21 15:25:39 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ Fixed::Fixed(const Fixed& copy)
 	return ;
 }
 
-/* the range of values for the passed parameter is [-8388608, 8388608 - 0.00390625)
- calculated by [-2^m-1, 2^m-1 - 2^-n], where n is the fractional bits and m
- is the 32 - n. */
 Fixed::Fixed(const int n)
 {
 	std::cout << "Parameterized constructor called" << std::endl;
