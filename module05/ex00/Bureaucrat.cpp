@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:38 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/22 23:48:17 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/23 20:15:16 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(void) : name("default")
 	return ;
 }
 
-Bureaucrat::Bureaucrat(int grade) : name("default")
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
 	std::cout << "Bureaucrat parameterized constructor called" << std::endl;
 	// try

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GradeTooHighException.hpp                          :+:      :+:    :+:   */
+/*   GradeTooLowException.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 23:17:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/23 20:13:29 by talsaiaa         ###   ########.fr       */
+/*   Created: 2023/06/23 20:15:57 by talsaiaa          #+#    #+#             */
+/*   Updated: 2023/06/23 20:15:58 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "GradeTooLowException.hpp"
 
-#include "Bureaucrat.hpp"
-
-class Bureaucrat::GradeTooHighException : public std::exception
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
-	public:
-		virtual const char* what() const throw();
-};
+	return ("Grade too low");
+}
