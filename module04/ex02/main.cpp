@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:52:23 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/18 18:03:21 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/23 00:25:18 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main()
 	const Cat king;
 	Cat queen(king);
 	
-	*a = *b;
+	*a = *b;	
 	a->makeSound();
 	b->makeSound();
 	std::cout << j->getType() << " " << std::endl;
