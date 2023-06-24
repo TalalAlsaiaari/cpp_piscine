@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:34 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/23 20:10:59 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:43:08 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 #include <iostream>
 #include <string>
-// #include "GradeTooHighException.hpp"
-// #include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
@@ -30,6 +28,7 @@ class Bureaucrat
 		std::string	getName(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
+		void		checkGrade(int);
 		
 		Bureaucrat(void);
 		Bureaucrat(std::string, int);
