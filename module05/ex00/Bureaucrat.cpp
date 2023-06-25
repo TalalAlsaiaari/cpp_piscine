@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:38 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 20:36:33 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/25 21:15:54 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 Bureaucrat::Bureaucrat(void) : name("default")
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	std::cout << "Bureaucrat " << this->getName() << " default constructor called" << std::endl;
 	this->grade = 150;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	std::cout << "Bureaucrat parameterized constructor called" << std::endl;
+	std::cout << "Bureaucrat " << this->getName() << " parameterized constructor called" << std::endl;
 	this->grade = grade;
 	checkGrade(this->grade);
 	return ;
@@ -31,14 +31,14 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	std::cout << "Bureaucrat " << this->getName() << " copy constructor called" << std::endl;
 	*this = copy;
 	return ;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& op)
 {
-	std::cout << "Bureaucrat copy assignment operator called" << std::endl;
+	std::cout << "Bureaucrat " << this->getName() << " copy assignment operator called" << std::endl;
 	if (this == &op)
 		return *this;
 	this->grade = op.grade;
@@ -47,7 +47,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& op)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat default destructor called" << std::endl;
+	std::cout << "Bureaucrat " << this->getName() << " default destructor called" << std::endl;
 	return ;
 }
 
@@ -68,7 +68,7 @@ void	Bureaucrat::checkGrade(int grade)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
-	std::cout << "Grade is " << getGrade() << std::endl;
+	std::cout << "New grade is " << getGrade() << std::endl;
 	return ;
 }
 
@@ -84,12 +84,14 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw()
 
 void	Bureaucrat::decrementGrade(void)
 {
+	std::cout << "Previous grade is " << this->grade << std::endl;
 	this->grade++;
 	checkGrade(this->grade);
 }
 
 void	Bureaucrat::incrementGrade(void)
 {
+	std::cout << "Previous grade is " << this->grade << std::endl;
 	this->grade--;
 	checkGrade(this->grade);
 }
