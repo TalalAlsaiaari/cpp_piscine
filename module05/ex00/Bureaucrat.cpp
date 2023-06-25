@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:38 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 20:24:09 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:36:33 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& op)
 	std::cout << "Bureaucrat copy assignment operator called" << std::endl;
 	if (this == &op)
 		return *this;
-	this->getName() = op.getName();
 	this->grade = op.grade;
 	return *this;
 }

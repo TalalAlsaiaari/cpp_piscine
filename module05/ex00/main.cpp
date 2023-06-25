@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 20:25:27 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:38:13 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	main(void)
 		Bureaucrat	b("b", 75);
 		Bureaucrat	c(b);
 		Bureaucrat	d = c;
+		Bureaucrat	e;
+
+		e = d;
 
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
