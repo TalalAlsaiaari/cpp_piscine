@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 21:01:46 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:03:43 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+	/*making sure all construcotrs and increment exception working properly*/
 	try	
 	{
 		Bureaucrat	a;
@@ -47,7 +48,7 @@ int	main(void)
 		std::cout << ex.what() << std::endl;
 	}
 
-
+	/*checking decrement exception is working*/
 	try
 	{
 		Bureaucrat	f("f", 149);
