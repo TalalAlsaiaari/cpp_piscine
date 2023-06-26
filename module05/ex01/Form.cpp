@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 22:15:33 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 23:29:03 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/26 18:54:41 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ Form::Form(void) : name("default"), signGrade(150), execGrade(150)
 Form::Form(std::string name, int signGrade, int execGrade) : name(name), signGrade(signGrade), execGrade(execGrade)
 {
 	std::cout << "Form " << this->getName() << " parameterized constructor called" << std::endl;
+	this->checkSignGrade(signGrade);
+	this->checkExecGrade(execGrade);
 	this->isSigned = false;
 	return ;
 }
