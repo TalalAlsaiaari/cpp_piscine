@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 20:18:04 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 21:27:18 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:11:03 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,21 @@ void	ShrubberyCreationForm::executeF(void) const
 {
 	std::fstream	file;
 	std::streambuf*	stream_buffer_cout;
-	std::streambuf*	stream_buffer_cin;
 	std::streambuf*	stream_buffer_file;
+	std::string		filename;
 
-	file.open(this->target + "_shrubbery", std::ios::out);
+	filename = this->target + "_shrubbery";
+	file.open(filename.c_str(), std::ios::out);
 	stream_buffer_cout = std::cout.rdbuf();
-	stream_buffer_cin = std::cin.rdbuf();
 	stream_buffer_file = file.rdbuf();
 	std::cout.rdbuf(stream_buffer_file);
 	std::cout << "	           ,@@@@@@@,\n";
 	std::cout << "	   ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
 	std::cout << "	,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
-	std::cout << "     ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n";
-	std::cout << "     %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n";
-	std::cout << "     %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n";
-	std::cout << "     `&%\\ ` /%&'    |.|        \\ '|8'\n";
+	std::cout << "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n";
+	std::cout << "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n";
+	std::cout << "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n";
+	std::cout << "   `&%\\ ` /%&'    |.|        \\ '|8'\n";
 	std::cout << "	   |o|        | |         | |\n";
 	std::cout << "	   |.|        | |         | |\n";
 	std::cout << "	\\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\\\_//__/_" << std::endl;

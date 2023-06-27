@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 21:12:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:20:44 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,10 @@ int	main(void)
 		d.beSigned(a);
 		std::cout << b << std::endl;
 		std::cout << c << std::endl;
+		std::cout << d << std::endl;
 		a.signForm(b);
 		a.signForm(c);
 		a.signForm(d);
-		b.execute(a);
-		c.execute(a);
-		d.execute(a);
 		a.executeForm(b);
 		a.executeForm(c);
 		a.executeForm(d);

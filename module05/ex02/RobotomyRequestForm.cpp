@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 20:40:22 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 21:05:19 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:06:12 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ void	RobotomyRequestForm::executeF(void) const
 	int	rnd;
 	
 	std::cout << "* Drilling noises *" << std::endl;
-	rnd = rand();
-	if (!rnd % 2)
+	srand(time(0));
+	rnd = rand() % 100;
+	if ((rnd % 2) == 0)
 		std::cout << this->target << " has been robotomized" << std::endl;
 	else
 		std::cout << "Robotomy failed for " << this->target << std::endl;
