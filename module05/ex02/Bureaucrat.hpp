@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:34 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 19:54:59 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:16:12 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat
 		void		decrementGrade(void);
 		void		checkGrade(int);
 		void		signForm(const AForm&);
+		void		executeForm(AForm const& Form);
 		
 		Bureaucrat(void);
 		Bureaucrat(std::string, int);

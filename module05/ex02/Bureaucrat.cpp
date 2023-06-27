@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:38 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 19:54:43 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:23:30 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	Bureaucrat::decrementGrade(void)
 	std::cout << "Previous grade is " << this->grade << std::endl;
 	this->grade++;
 	checkGrade(this->grade);
+	return ;
 }
 
 void	Bureaucrat::incrementGrade(void)
@@ -95,6 +96,7 @@ void	Bureaucrat::incrementGrade(void)
 	std::cout << "Previous grade is " << this->grade << std::endl;
 	this->grade--;
 	checkGrade(this->grade);
+	return ;
 }
 
 void	Bureaucrat::signForm(const AForm& x)
@@ -103,6 +105,13 @@ void	Bureaucrat::signForm(const AForm& x)
 		std::cout << this->getName() << " signed " << x.getName() << std::endl;
 	else if (!x.getSignStatus())
 		std::cout << this->getName() << " couldn't sign " << x.getName() << " because their grade is too low" << std::endl;
+	return ;
+}
+
+void	Bureaucrat::executeForm(AForm const& Form)
+{
+	Form.execute(*this);
+	std::cout << this->getName() << " executed " << Form.getName() << std::endl;
 	return ;
 }
 

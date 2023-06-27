@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 20:04:04 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 20:31:24 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:21:52 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm
@@ -22,6 +23,8 @@ class ShrubberyCreationForm : public AForm
 		std::string	target;
 	
 	public:
+		void	executeF(void) const;
+		
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string const);
 		ShrubberyCreationForm(const ShrubberyCreationForm&);

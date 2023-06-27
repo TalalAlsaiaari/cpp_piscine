@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 22:15:33 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 19:54:02 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:12:32 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Bureaucrat.hpp"
 #include "FormGradeTooHighException.hpp"
 #include "FormGradeTooLowException.hpp"
+#include "FormNotSignedException.hpp"
 
 AForm::AForm(void) : name("default"), signGrade(150), execGrade(150)
 {
@@ -106,7 +107,21 @@ void	AForm::beSigned(const Bureaucrat& x)
 	if (x.getGrade() > this->getSignGrade())
 		throw GradeTooLowException();
 	this->isSigned = true;
-	// std::cout << "AForm " << this->getName() << " is now signed." << std::endl;
+	return ;
+}
+
+const char*	AForm::FormNotSignedException::what() const throw()
+{
+	return "Form Not Signed";
+}
+
+void	AForm::execute(Bureaucrat const& executor) const
+{
+	if (!this->isSigned)
+		throw FormNotSignedException();
+	if (executor.getGrade() > this->execGrade)
+		throw GradeTooLowException();
+	executeF();
 	return ;
 }
 

@@ -14,34 +14,44 @@
 
 PresidentialPardonForm::PresidentialPardonForm(void) : AForm("Presidential PardonForm Form", 25, 5), target("default")
 {
-	std::cout << "Presidential PardonForm Form " << this->getName() << " default constructor called" << std::endl;
+	std::cout << this->getName() << " default constructor called" << std::endl;
+	std::cout << "Target: " << this->target << std::endl;
 	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential PardonForm Form", 25, 5), target(target)
 {
-	std::cout << "Presidential PardonForm Form " << this->getName() << " parameterized constructor called" << std::endl;
+	std::cout << this->getName() << " parameterized constructor called" << std::endl;
+	std::cout << "Target: " << this->target << std::endl;
 	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : AForm("Presidential PardonForm Form", 25, 5), target(copy.target)
 {
-	std::cout << "Presidential PardonForm Form " << this->getName() << " copy constructor called" << std::endl;
+	std::cout << this->getName() << " copy constructor called" << std::endl;
 	*this = copy;
+	std::cout << "Target: " << this->target << std::endl;
 	return ;
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& op)
 {
-	std::cout << "Presidential PardonForm Form " << this->getName() << " copy assignment operator called" << std::endl;
+	std::cout << this->getName() << " copy assignment operator called" << std::endl;
 	if (this == &op)
 		return *this;
 	this->target = op.target;
+	std::cout << "Target: " << this->target << std::endl;
 	return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	std::cout << "Presidential PardonForm Form " << this->getName() << " default destructor called" << std::endl;
+	std::cout << this->getName() << " default destructor called" << std::endl;
+	return ;
+}
+
+void	PresidentialPardonForm::executeF(void) const
+{
+	std::cout << this->target << " has been pardoned by Zaphod Beeblebox." << std::endl;
 	return ;
 }

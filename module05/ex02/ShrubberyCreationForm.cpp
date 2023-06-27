@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 20:18:04 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 20:34:23 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:27:18 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,65 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation Form", 145, 137), target("default")
 {
-	std::cout << "Shrubbery Creation Form " << this->getName() << " default constructor called" << std::endl;
+	std::cout << this->getName() << " default constructor called" << std::endl;
+	std::cout << "Target: " << this->target << std::endl;
 	return ;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation Form", 145, 137), target(target)
 {
-	std::cout << "Shrubbery Creation Form " << this->getName() << " parameterized constructor called" << std::endl;
+	std::cout << this->getName() << " parameterized constructor called" << std::endl;
+	std::cout << "Target: " << this->target << std::endl;
 	return ;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : AForm("Shrubbery Creation Form", 145, 137), target(copy.target)
 {
-	std::cout << "Shrubbery Creation Form " << this->getName() << " copy constructor called" << std::endl;
+	std::cout << this->getName() << " copy constructor called" << std::endl;
 	*this = copy;
+	std::cout << "Target: " << this->target << std::endl;
 	return ;
 }
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& op)
 {
-	std::cout << "Shrubbery Creation Form " << this->getName() << " copy assignment operator called" << std::endl;
+	std::cout << this->getName() << " copy assignment operator called" << std::endl;
 	if (this == &op)
 		return *this;
 	this->target = op.target;
+	std::cout << "Target: " << this->target << std::endl;
 	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	std::cout << "Shrubbery Creation Form " << this->getName() << " default destructor called" << std::endl;
+	std::cout << this->getName() << " default destructor called" << std::endl;
+	return ;
+}
+
+void	ShrubberyCreationForm::executeF(void) const
+{
+	std::fstream	file;
+	std::streambuf*	stream_buffer_cout;
+	std::streambuf*	stream_buffer_cin;
+	std::streambuf*	stream_buffer_file;
+
+	file.open(this->target + "_shrubbery", std::ios::out);
+	stream_buffer_cout = std::cout.rdbuf();
+	stream_buffer_cin = std::cin.rdbuf();
+	stream_buffer_file = file.rdbuf();
+	std::cout.rdbuf(stream_buffer_file);
+	std::cout << "	           ,@@@@@@@,\n";
+	std::cout << "	   ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
+	std::cout << "	,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
+	std::cout << "     ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n";
+	std::cout << "     %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n";
+	std::cout << "     %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n";
+	std::cout << "     `&%\\ ` /%&'    |.|        \\ '|8'\n";
+	std::cout << "	   |o|        | |         | |\n";
+	std::cout << "	   |.|        | |         | |\n";
+	std::cout << "	\\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\\\_//__/_" << std::endl;
+    std::cout.rdbuf(stream_buffer_cout);
+	file.close();
 	return ;
 }

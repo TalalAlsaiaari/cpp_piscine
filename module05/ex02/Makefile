@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/22 20:09:12 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/06/26 20:46:21 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/06/27 21:29:12 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ $(NAME) : $(OBJS)
 
 clean :
 	$(RM) $(OBJS)
+	rm -rf *_shrubbery
 
 fclean : clean
 	$(RM) $(NAME)
