@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:34 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 19:16:12 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:21:02 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ class Bureaucrat
 	private:
 		std::string const	name;
 		int					grade;
+		class				GradeTooHighException;
+		class				GradeTooLowException;
 
 	public:
-		class		GradeTooHighException;
-		class		GradeTooLowException;
 		int			getGrade(void) const;
 		std::string	getName(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
 		void		checkGrade(int);
-		void		signForm(const AForm&);
+		void		signForm(AForm&);
 		void		executeForm(AForm const& Form);
 		
 		Bureaucrat(void);

@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 21:27:27 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 23:28:59 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:20:29 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ class Form
 		bool				isSigned;
 		int const			signGrade;
 		int	const			execGrade;
-	
+		class				GradeTooHighException;
+		class				GradeTooLowException;
+		void				checkSignGrade(int);
+		void				checkExecGrade(int);
+			
 	public:
-		class		GradeTooHighException;
-		class		GradeTooLowException;
 		std::string	getName(void) const;
 		bool		getSignStatus(void) const;
 		int			getSignGrade(void) const;
 		int			getExecGrade(void) const;
 		void		beSigned(const Bureaucrat&);
-		void		checkSignGrade(int);
-		void		checkExecGrade(int);
 
 		Form(void);
 		Form(std::string, int, int);

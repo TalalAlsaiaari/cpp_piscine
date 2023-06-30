@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 22:20:44 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:03:49 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	main(void)
 	std::cout << "\n~~~ Checking constructors ~~~\n" << std::endl;
 	try	
 	{
-		AForm*	a = new ShrubberyCreationForm("home");
+		AForm*	a = new ShrubberyCreationForm("Home");
 		ShrubberyCreationForm	b;
 		ShrubberyCreationForm	c(b);
 		ShrubberyCreationForm	d = c;
 		ShrubberyCreationForm	e;
-		ShrubberyCreationForm	f("home");
+		ShrubberyCreationForm	f("Home");
 		RobotomyRequestForm		g;
 		PresidentialPardonForm	h("Random Person");
 
@@ -51,73 +51,146 @@ int	main(void)
 	std::cout << "\n~~~ Checking Functionalities ~~~\n" << std::endl;
 	try
 	{
-		Bureaucrat					a("Big Boss", 1);
-		ShrubberyCreationForm		b("Home");
-		RobotomyRequestForm			c("Agent");
-		PresidentialPardonForm		d("Prisoner");
+		Bureaucrat				a("Signer", 25);
+		Bureaucrat				b("Executor", 5);
+		ShrubberyCreationForm	c("Office");
+		RobotomyRequestForm		d("Agent");
+		PresidentialPardonForm	e("Prisoner");
+		ShrubberyCreationForm	f("Home");
 
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
 		std::cout << c << std::endl;
 		std::cout << d << std::endl;
-		b.beSigned(a);
-		c.beSigned(a);
-		d.beSigned(a);
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
-		std::cout << d << std::endl;
-		a.signForm(b);
+		std::cout << e << std::endl;
+		std::cout << f << std::endl;
 		a.signForm(c);
 		a.signForm(d);
-		a.executeForm(b);
-		a.executeForm(c);
-		a.executeForm(d);
+		a.signForm(e);
+		a.signForm(f);
+		std::cout << c << std::endl;
+		std::cout << d << std::endl;
+		std::cout << e << std::endl;
+		std::cout << f << std::endl;
+		b.executeForm(c);
+		b.executeForm(d);
+		b.executeForm(e);
+		b.executeForm(f);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 	
-	// /*making sure exceptions are working*/
-	// std::cout << "\n~~~ Checking Bureacrat too low grade for form ~~~\n" << std::endl;
-	// try
-	// {
-	// 	Bureaucrat	a("New Employee", 150);
-	// 	Form		b("New Company", 1, 1);
+	/*making sure exceptions are working*/
+	std::cout << "\n~~~ Checking Bureacrat too low grade for form ~~~\n" << std::endl;
+	try
+	{
+		Bureaucrat					a("Signer", 150);
+		Bureaucrat					b("Executor", 137);
+		ShrubberyCreationForm		c("Room");
 
-	// 	std::cout << a << std::endl;
-	// 	std::cout << b << std::endl;
-	// 	b.beSigned(a);
-	// 	std::cout << b << std::endl;
-	// 	a.signForm(b);
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-	// std::cout << "\n~~~ Checking Invalid Form Grades: Sign Grade ~~~\n" << std::endl;
-	// try
-	// {
-	// 	Form	a("Invalid Form", -2, 10);
-	// 	//will not execute below because of exception
-	// 	std::cout << a << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
+		a.signForm(c);
+		std::cout << c << std::endl;
+		b.executeForm(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	
-	// std::cout << "\n~~~ Checking Invalid Form Grades: Exec Grade ~~~\n" << std::endl;
-	// try
-	// {
-	// 	Form	a("Invalid Form", 10, 200);
-	// 	//will not execute below because of exception
-	// 	std::cout << a << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
+	try
+	{
+		Bureaucrat				a("Signer", 145);
+		Bureaucrat				b("Executor", 138);
+		ShrubberyCreationForm	c("Room");
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
+		a.signForm(c);
+		std::cout << c << std::endl;
+		b.executeForm(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	try
+	{
+		Bureaucrat			a("Signer", 73);
+		Bureaucrat			b("Executor", 45);
+		RobotomyRequestForm	c("Agent");
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
+		a.signForm(c);
+		std::cout << c << std::endl;
+		b.executeForm(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	try
+	{
+		Bureaucrat			a("Signer", 72);
+		Bureaucrat			b("Executor", 46);
+		RobotomyRequestForm	c("Agent");
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
+		a.signForm(c);
+		std::cout << c << std::endl;
+		b.executeForm(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	try
+	{
+		Bureaucrat				a("Signer", 26);
+		Bureaucrat				b("Executor", 5);
+		PresidentialPardonForm	c("Prisoner");
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
+		a.signForm(c);
+		std::cout << c << std::endl;
+		b.executeForm(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	try
+	{
+		Bureaucrat				a("Signer", 25);
+		Bureaucrat				b("Executor", 6);
+		PresidentialPardonForm	c("Prisoner");
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
+		a.signForm(c);
+		std::cout << c << std::endl;
+		b.executeForm(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	return 0;
 }

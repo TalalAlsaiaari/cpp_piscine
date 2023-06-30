@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 20:40:25 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 20:22:04 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:21:28 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string	target;
+		void		executeF(void) const;
 	
 	public:
-		void	executeF(void) const;
 		
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(std::string const);

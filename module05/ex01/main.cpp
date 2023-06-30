@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 19:36:59 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 18:20:56 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ int	main(void)
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
 		std::cout << c << std::endl;
-		b.beSigned(a);
-		c.beSigned(a);
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
 		a.signForm(b);
 		a.signForm(c);
+		std::cout << b << std::endl;
+		std::cout << c << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -69,9 +67,8 @@ int	main(void)
 
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
-		b.beSigned(a);
-		std::cout << b << std::endl;
 		a.signForm(b);
+		std::cout << b << std::endl;
 	}
 	catch (std::exception &e)
 	{

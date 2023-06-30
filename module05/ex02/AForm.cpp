@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 22:15:33 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 21:12:32 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 18:53:24 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,10 @@ void	AForm::checkExecGrade(int execGrade)
 void	AForm::beSigned(const Bureaucrat& x)
 {
 	if (x.getGrade() > this->getSignGrade())
+	{
+		std::cout << x.getName() << " couldn't sign " << this->getName() << " because grade is too low" << std::endl;
 		throw GradeTooLowException();
+	}
 	this->isSigned = true;
 	return ;
 }
@@ -120,7 +123,10 @@ void	AForm::execute(Bureaucrat const& executor) const
 	if (!this->isSigned)
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->execGrade)
+	{
+		std::cout << executor.getName()  << " coudln't execute " << this->getName() << " because grade is too low" << std::endl;
 		throw GradeTooLowException();
+	}
 	executeF();
 	return ;
 }

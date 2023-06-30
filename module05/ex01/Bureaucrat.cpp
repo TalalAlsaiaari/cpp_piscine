@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:38 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/25 23:30:18 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 18:18:41 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,11 @@ void	Bureaucrat::incrementGrade(void)
 	checkGrade(this->grade);
 }
 
-void	Bureaucrat::signForm(const Form& x)
+void	Bureaucrat::signForm(Form& x)
 {
+	x.beSigned(*this);
 	if (x.getSignStatus())
 		std::cout << this->getName() << " signed " << x.getName() << std::endl;
-	else if (!x.getSignStatus())
-		std::cout << this->getName() << " couldn't sign " << x.getName() << " because their grade is too low" << std::endl;
 	return ;
 }
 
