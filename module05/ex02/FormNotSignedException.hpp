@@ -6,11 +6,13 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:55:22 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/27 17:56:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:46:57 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
 
 class AForm::FormNotSignedException : public std::exception
 {

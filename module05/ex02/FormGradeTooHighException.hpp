@@ -6,11 +6,13 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 22:12:09 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/26 19:55:07 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:46:52 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
 
 class AForm::GradeTooHighException : public std::exception
 {

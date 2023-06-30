@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   GradeTooLowException.hpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 23:26:07 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/24 17:38:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:47:17 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
 
 class Bureaucrat::GradeTooLowException : public std::exception
 {

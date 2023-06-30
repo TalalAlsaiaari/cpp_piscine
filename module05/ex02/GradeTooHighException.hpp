@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   GradeTooHighException.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 23:17:08 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/24 17:38:09 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:47:00 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
 
 class Bureaucrat::GradeTooHighException : public std::exception
 {

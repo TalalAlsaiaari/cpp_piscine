@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GradeTooLowException.hpp                           :+:      :+:    :+:   */
+/*   FormGradeTooHighException.hpp                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 23:26:07 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/30 22:47:03 by talsaiaa         ###   ########.fr       */
+/*   Created: 2023/06/25 22:12:09 by talsaiaa          #+#    #+#             */
+/*   Updated: 2023/06/30 22:46:29 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-class Bureaucrat::GradeTooLowException : public std::exception
+class AForm::GradeTooHighException : public std::exception
 {
 	public:
 		virtual const char* what() const throw();
