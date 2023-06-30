@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:10:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/30 23:27:51 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 23:39:27 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(void)
 	delete ppf;
 	
 	/*making sure exceptions are working*/
-	std::cout << "\n~~~ Checking Bureacrat too low grade for form ~~~\n" << std::endl;
+	std::cout << "\n~~~ Checking Invalid Form Name Exception ~~~\n" << std::endl;
 	Intern	intern;
 	AForm	*inv;
 	try
