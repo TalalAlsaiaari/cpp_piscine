@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 20:28:37 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/30 23:08:58 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/06/30 23:29:29 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ AForm*	Intern::makeForm(std::string formName, std::string target)
 			return this->forms[i]->clone(target);
 	}
 	throw FormDoesNotExistException();
-	// return NULL;
+	return NULL;
 }
 
 const char* Intern::FormDoesNotExistException::what() const throw()
