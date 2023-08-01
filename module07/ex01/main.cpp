@@ -6,12 +6,11 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 17:08:56 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/01 07:10:05 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/01 07:12:40 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
-#include <ctype.h>
 
 void    myToUpper(char c)
 {
