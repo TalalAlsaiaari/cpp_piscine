@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 15:59:39 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/08/01 07:52:41 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/08/01 07:57:16 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 RM			=	rm -rf
 
 %.o : %.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean :
 	$(RM) $(OBJS)
