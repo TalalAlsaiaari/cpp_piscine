@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 15:59:39 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/07/31 15:59:45 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/08/01 07:52:41 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		=	main.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
-CC			=	c++
+CXX			=	c++
 
 CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
