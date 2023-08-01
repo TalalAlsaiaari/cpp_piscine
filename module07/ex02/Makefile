@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 07:55:22 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/08/01 07:58:04 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/08/01 15:17:40 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME		=	ex02
 
-SRCS		=	main.cpp Array.tpp
+SRCS		=	main.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
 CXX			=	c++
 
-CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror -g
 
 RM			=	rm -rf
 
