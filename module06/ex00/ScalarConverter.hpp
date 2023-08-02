@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:07:29 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/01 19:07:45 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/02 10:47:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 #include <iostream>
 #include <sstream>
+#include <limits>
 
 class ScalarConverter
 {
 	private:
+		static std::string nums;
+		static char c;
+		static long int n;
+		static float f;
+		static double d;
+		
 		ScalarConverter();
 		static bool isChar(std::string);
 		static bool isInt(std::string);
