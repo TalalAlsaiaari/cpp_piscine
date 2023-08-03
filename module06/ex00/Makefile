@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 17:01:52 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/08/01 17:02:21 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/08/03 09:33:48 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ScalarConverter
+NAME		=	convert
 
 SRCS		=	main.cpp ScalarConverter.cpp
 
