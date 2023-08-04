@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:54:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/03 13:26:05 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:29:26 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ bool ScalarConverter::isDouble(std::string arg)
 	return false;
 }
 
+bool ScalarConverter::isSpecial(std::string arg)
+{
+	if (!arg.compare("-inff") || !arg.compare("+inff") || !arg.compare("nanf")
+		|| !arg.compare("-inf") || !arg.compare("+inf") || !arg.compare("nan"))
+		return true;
+	return false;
+}
+
 void ScalarConverter::convertToChar(std::string arg)
 {
 	std::stringstream conv;
@@ -100,6 +108,31 @@ void ScalarConverter::convertToDouble(std::string arg)
 	doubleToAll(d);
 }
 
+void ScalarConverter::convertToSpecialFloat(std::string arg)
+{
+	float f;
+
+	if (!arg.compare("-inff") || !arg.compare("+inff")) 
+		f = std::numeric_limits<float>::infinity();
+	if (!arg.compare("nanf"))
+		f = std::numeric_limits<float>::quiet_NaN();
+	specialFloatToAll(f);
+}
+
+void ScalarConverter::convertToSpecialDouble(std::string arg)
+{
+	std::stringstream conv;
+	double d;
+
+	if (!arg.compare("-inf") || !arg.compare("+inf") || !arg.compare("nan"))
+	{
+		conv << arg;
+		if (!(conv >> d))
+			std::cout << "Error" << std::endl;
+		specialDoubleToAll(d);
+	}
+}
+
 void ScalarConverter::charToAll(char c)
 {
 	displayChar(c);
@@ -130,6 +163,22 @@ void ScalarConverter::doubleToAll(double d)
 	displayInt(static_cast <int> (d));
 	displayFloat(static_cast <float> (d));
 	displayDouble(d);
+}
+
+void ScalarConverter::specialFloatToAll(float f)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	displaySpecialFloat((f));
+	displaySpecialDouble(static_cast <double> (f));
+}
+
+void ScalarConverter::specialDoubleToAll(double d)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	displaySpecialFloat(static_cast <float> (d));
+	displaySpecialDouble(d);
 }
 
 void ScalarConverter::displayChar(char c)
@@ -169,6 +218,24 @@ void ScalarConverter::displayDouble(double d)
 	std::cout << "double: " << d << ".0" << std::endl;
 }
 
+void ScalarConverter::displaySpecialFloat(float f)
+{
+	std::cout << "float: " << f << std::endl;
+}
+
+void ScalarConverter::displaySpecialDouble(double d)
+{
+	std::cout << "double: " << d << std::endl;
+}
+
+void ScalarConverter::displayError(void)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
+
 void ScalarConverter::convert(std::string arg)
 {
 	if (isChar(arg))
@@ -179,4 +246,11 @@ void ScalarConverter::convert(std::string arg)
 		convertToFloat(arg);
 	else if (isDouble(arg))
 		convertToDouble(arg);
+	else if (isSpecial(arg))
+	{
+		convertToSpecialFloat(arg);
+		convertToSpecialDouble(arg);
+	}
+	else
+		displayError();
 }
