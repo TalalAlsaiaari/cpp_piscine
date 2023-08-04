@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:54:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/03 14:29:26 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:36:02 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ bool ScalarConverter::isFloat(std::string arg)
 {
 	size_t dotPos = arg.find_first_of(".");
 	std::string nums = "1234567890";
-	
-	if (arg[arg.length()] == 'f'
-		&& arg.find_last_not_of(nums + ".", arg.length() - 1) == std::string::npos
+
+	if (arg[arg.length() - 1] == 'f'
+		&& arg.find_last_not_of(nums + ".", arg.length() - 2) == std::string::npos
 		&& arg.find_last_of(".") == dotPos)
 		return true;
 	return false;
@@ -60,10 +60,16 @@ bool ScalarConverter::isDouble(std::string arg)
 	return false;
 }
 
-bool ScalarConverter::isSpecial(std::string arg)
+bool ScalarConverter::isSpecialFloat(std::string arg)
 {
-	if (!arg.compare("-inff") || !arg.compare("+inff") || !arg.compare("nanf")
-		|| !arg.compare("-inf") || !arg.compare("+inf") || !arg.compare("nan"))
+	if (!arg.compare("-inff") || !arg.compare("+inff") || !arg.compare("nanf"))
+		return true;
+	return false;
+}
+
+bool ScalarConverter::isSpecialDouble(std::string arg)
+{
+	if (!arg.compare("-inf") || !arg.compare("+inf") || !arg.compare("nan"))
 		return true;
 	return false;
 }
@@ -91,10 +97,13 @@ void ScalarConverter::convertToInt(std::string arg)
 void ScalarConverter::convertToFloat(std::string arg)
 {
 	std::stringstream conv;
-	float f;
+	float f = 1.0f;
 
-	conv << arg;
-	conv >> f;
+	std::cout << f << std::endl;
+	// conv << arg;
+	conv.str(arg);
+	if (!(conv >> f))
+		std::cout << "Error" << std::endl;
 	floatToAll(f);
 }
 
@@ -110,27 +119,44 @@ void ScalarConverter::convertToDouble(std::string arg)
 
 void ScalarConverter::convertToSpecialFloat(std::string arg)
 {
-	float f;
+	float f = -1;
+	int flag = -1;
 
-	if (!arg.compare("-inff") || !arg.compare("+inff")) 
+	if (!arg.compare("-inff") || !arg.compare("+inff"))
+	{ 
 		f = std::numeric_limits<float>::infinity();
-	if (!arg.compare("nanf"))
+		if (!arg.compare("-inff"))
+			flag = 1;
+		else if (!arg.compare("+inff"))
+			flag = 2;
+	}
+	else if (!arg.compare("nanf"))
+	{
 		f = std::numeric_limits<float>::quiet_NaN();
-	specialFloatToAll(f);
+		flag = 3;
+	}
+	specialFloatToAll(f, flag);
 }
 
 void ScalarConverter::convertToSpecialDouble(std::string arg)
 {
-	std::stringstream conv;
-	double d;
+	double d = -1;
+	int flag = -1;
 
-	if (!arg.compare("-inf") || !arg.compare("+inf") || !arg.compare("nan"))
-	{
-		conv << arg;
-		if (!(conv >> d))
-			std::cout << "Error" << std::endl;
-		specialDoubleToAll(d);
+	if (!arg.compare("-inf") || !arg.compare("+inf"))
+	{ 
+		d = std::numeric_limits<double>::infinity();
+		if (!arg.compare("-inf"))
+			flag = 3;
+		else if (!arg.compare("+inf"))
+			flag = 4;
 	}
+	else if (!arg.compare("nan"))
+	{
+		d = std::numeric_limits<double>::quiet_NaN();
+		flag = 6;
+	}
+	specialDoubleToAll(d, flag);
 }
 
 void ScalarConverter::charToAll(char c)
@@ -165,20 +191,20 @@ void ScalarConverter::doubleToAll(double d)
 	displayDouble(d);
 }
 
-void ScalarConverter::specialFloatToAll(float f)
+void ScalarConverter::specialFloatToAll(float f, int flag)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	displaySpecialFloat((f));
-	displaySpecialDouble(static_cast <double> (f));
+	displaySpecialFloat(f, flag);
+	displaySpecialDouble(static_cast <double> (f), flag);
 }
 
-void ScalarConverter::specialDoubleToAll(double d)
+void ScalarConverter::specialDoubleToAll(double d, int flag)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	displaySpecialFloat(static_cast <float> (d));
-	displaySpecialDouble(d);
+	displaySpecialFloat(static_cast <float> (d), flag);
+	displaySpecialDouble(d, flag);
 }
 
 void ScalarConverter::displayChar(char c)
@@ -201,31 +227,32 @@ void ScalarConverter::displayInt(long n)
 
 void ScalarConverter::displayFloat(float f)
 {
-	// std::cout << FLT_MIN << std::endl;
-	// std::cout << f << std::endl;
-	// std::cout << typeid(f).name() << std::endl;
-	// if (f < FLT_MIN || f > FLT_MAX)
-	// 	std::cout << "float: impossible" << std::endl;
-	// else
 	std::cout << "float: " << f << ".0f" << std::endl;
 }
 
 void ScalarConverter::displayDouble(double d)
 {
-	// if (d < DBL_MIN || d > DBL_MAX)
-	// 	std::cout << "double: impossible" << std::endl;
-	// else
 	std::cout << "double: " << d << ".0" << std::endl;
 }
 
-void ScalarConverter::displaySpecialFloat(float f)
+void ScalarConverter::displaySpecialFloat(float f, int flag)
 {
-	std::cout << "float: " << f << std::endl;
+	if (flag == 1 || flag == 4)
+		std::cout << "float: " << '-' << f << 'f' << std::endl;
+	else if (flag == 2 || flag == 5)
+		std::cout << "float: " << '+' << f << 'f' << std::endl;
+	else if (flag == 3 || flag == 6)
+		std::cout << "float: " << f << 'f' << std::endl;
 }
 
-void ScalarConverter::displaySpecialDouble(double d)
+void ScalarConverter::displaySpecialDouble(double d, int flag)
 {
-	std::cout << "double: " << d << std::endl;
+	if (flag == 1 || flag == 4)
+		std::cout << "double: " << '-' << d << std::endl;
+	else if (flag == 2 || flag == 5)
+		std::cout << "double: " << '+' << d << std::endl;
+	else if (flag == 3 || flag == 6)
+		std::cout << "double: " << d << std::endl;
 }
 
 void ScalarConverter::displayError(void)
@@ -239,16 +266,35 @@ void ScalarConverter::displayError(void)
 void ScalarConverter::convert(std::string arg)
 {
 	if (isChar(arg))
-		convertToChar(arg);
-	else if (isInt(arg))
-		convertToInt(arg);
-	else if (isFloat(arg))
-		convertToFloat(arg);
-	else if (isDouble(arg))
-		convertToDouble(arg);
-	else if (isSpecial(arg))
 	{
+		std::cout << "1" << std::endl;
+		convertToChar(arg);
+	}
+	else if (isInt(arg))
+	{
+		std::cout << "2" << std::endl;
+		convertToInt(arg);
+	}
+	else if (isFloat(arg))
+	{
+		std::cout << arg << std::endl;
+		std::cout << "3" << std::endl;
+		convertToFloat(arg);
+	}
+	else if (isDouble(arg))
+	{
+		std::cout << arg << std::endl;
+		std::cout << "4" << std::endl;
+		convertToDouble(arg);
+	}
+	else if (isSpecialFloat(arg))
+	{
+		std::cout << "5" << std::endl;
 		convertToSpecialFloat(arg);
+	}
+	else if (isSpecialDouble(arg))
+	{
+		std::cout << "6" << std::endl;
 		convertToSpecialDouble(arg);
 	}
 	else

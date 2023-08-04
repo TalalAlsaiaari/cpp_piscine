@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:07:29 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/03 14:16:25 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:12:46 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@
 
 class ScalarConverter
 {
-	private:
+	private:		
 		ScalarConverter();
 		static bool isChar(std::string);
 		static bool isInt(std::string);
 		static bool isFloat(std::string);
 		static bool isDouble(std::string);
-		static bool isSpecial(std::string);
+		static bool isSpecialFloat(std::string);
+		static bool isSpecialDouble(std::string);
 		static void convertToChar(std::string);
 		static void convertToInt(std::string);
 		static void convertToFloat(std::string);
@@ -39,14 +40,14 @@ class ScalarConverter
 		static void intToAll(long);
 		static void floatToAll(float);
 		static void doubleToAll(double);
-		static void specialFloatToAll(float);
-		static void specialDoubleToAll(double);
+		static void specialFloatToAll(float, int);
+		static void specialDoubleToAll(double, int);
 		static void displayChar(char);
 		static void displayInt(long);
 		static void displayFloat(float);
 		static void displayDouble(double);
-		static void displaySpecialFloat(float);
-		static void displaySpecialDouble(double);
+		static void displaySpecialFloat(float, int);
+		static void displaySpecialDouble(double, int);
 		static void displayError(void);
 
 	public:
