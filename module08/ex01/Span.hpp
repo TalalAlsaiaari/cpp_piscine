@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:51 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/04 16:59:00 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:50:34 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ class Span
 	private:
 		unsigned int maxSize;
 		unsigned int currentAmount;
-		int	min;
-		int max;
 		std::vector<int> cont;
 
 	public:
 		void addNumber(int);
 		int shortestSpan(void);
 		int longestSpan(void);
+		void fillSpan(unsigned int);
 		class NoSpaceLeftException : public std::exception
 		{
 			public:

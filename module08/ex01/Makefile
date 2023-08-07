@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/04 15:27:16 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/08/04 15:30:28 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/08/07 12:36:25 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	span
 
 SRCS		=	main.cpp Span.cpp
 
-OBJS		=	$(SRCS:.cpp:.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
 CXX			=	c++
 
