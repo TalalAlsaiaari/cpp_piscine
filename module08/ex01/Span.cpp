@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:34:41 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/09 19:31:53 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/09 20:57:37 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void Span::addNumber(int n)
 	this->currentAmount++;
 }
 
-int	Span::longestSpan(void)
+long Span::longestSpan(void)
 {
-	int min;
-	int max;
-	int res;
+	long min;
+	long max;
+	long res;
 	
 	if (this->currentAmount <= 1)
 		throw NoSpanCanBeFoundException();
@@ -64,12 +64,12 @@ int	Span::longestSpan(void)
 	return (res);
 }
 
-int Span::shortestSpan(void)
+long Span::shortestSpan(void)
 {
-	int first;
-	int second;
-	int res;
-	int span = INT_MAX;
+	long first;
+	long second;
+	long res;
+	long span = LONG_LONG_MAX;
 
 	if (this->currentAmount <= 1)
 		throw NoSpanCanBeFoundException();

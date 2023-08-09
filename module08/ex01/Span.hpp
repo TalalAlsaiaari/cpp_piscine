@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:51 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/07 15:50:34 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/09 20:48:53 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Span
 
 	public:
 		void addNumber(int);
-		int shortestSpan(void);
-		int longestSpan(void);
+		long shortestSpan(void);
+		long longestSpan(void);
 		void fillSpan(unsigned int);
 		class NoSpaceLeftException : public std::exception
 		{
