@@ -64,6 +64,8 @@
 		"deque": "cpp",
 		"filesystem": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"*.tpp": "cpp",
+		"climits": "cpp"
 	}
 }

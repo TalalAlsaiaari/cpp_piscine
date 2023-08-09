@@ -6,16 +6,11 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:54:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/09 13:00:27 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:25:14 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-ScalarConverter::ScalarConverter(void)
-{
-	;
-}
 
 bool ScalarConverter::isChar(std::string arg)
 {	
