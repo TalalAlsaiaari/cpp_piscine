@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 12:34:30 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/07 15:57:27 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/09 19:33:12 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main()
 		sp.addNumber(11);
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
+		// sp.addNumber(34);
 	}
 	catch(std::exception &e)
 	{

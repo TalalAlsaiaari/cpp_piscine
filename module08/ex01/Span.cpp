@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:34:41 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/07 15:59:38 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/09 19:31:53 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,17 @@ int	Span::longestSpan(void)
 {
 	int min;
 	int max;
+	int res;
 	
 	if (this->currentAmount <= 1)
 		throw NoSpanCanBeFoundException();
 	std::sort(cont.begin(), cont.end());
 	min = cont.at(0);
 	max = cont.at(this->maxSize - 1);
-	return (max - min);
+	res = max - min;
+	if (res < 0)
+		res *= -1;
+	return (res);
 }
 
 int Span::shortestSpan(void)
@@ -78,13 +82,21 @@ int Span::shortestSpan(void)
 		if (res < span)
 			span = res;
 	}
+	if (span < 0)
+		span *= -1;
 	return (span);
 }
 
 void Span::fillSpan(unsigned int count)
 {
+	if (count > this->maxSize)
+		throw NoSpaceLeftException();
+	int *nums = new int[count];
+	this->currentAmount = count;
 	for (unsigned int i = 0; i < count; i++)
 	{
-		addNumber(i * 10);
+		nums[i] = i;
 	}
+	cont.assign(nums, nums + count);
+	delete []nums;
 }
