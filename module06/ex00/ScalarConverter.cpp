@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:54:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/04 12:36:02 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:00:27 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool ScalarConverter::isDouble(std::string arg)
 	size_t dotPos = arg.find_first_of(".");
 	std::string nums = "1234567890";
 
-	if (arg.find_first_not_of(nums + ".")
+	if (arg.find_first_not_of(nums + ".") == std::string::npos
 		&& arg.find_last_of(".") == dotPos)
 		return true;
 	return false;
@@ -97,13 +97,11 @@ void ScalarConverter::convertToInt(std::string arg)
 void ScalarConverter::convertToFloat(std::string arg)
 {
 	std::stringstream conv;
-	float f = 1.0f;
+	float f;
 
-	std::cout << f << std::endl;
-	// conv << arg;
-	conv.str(arg);
-	if (!(conv >> f))
-		std::cout << "Error" << std::endl;
+	arg[arg.length() - 1] = 0;
+	conv << arg;
+	conv >> f;
 	floatToAll(f);
 }
 
@@ -147,9 +145,9 @@ void ScalarConverter::convertToSpecialDouble(std::string arg)
 	{ 
 		d = std::numeric_limits<double>::infinity();
 		if (!arg.compare("-inf"))
-			flag = 3;
-		else if (!arg.compare("+inf"))
 			flag = 4;
+		else if (!arg.compare("+inf"))
+			flag = 5;
 	}
 	else if (!arg.compare("nan"))
 	{
@@ -169,7 +167,10 @@ void ScalarConverter::charToAll(char c)
 
 void ScalarConverter::intToAll(long n)
 {
-	displayChar(static_cast <char> (n));
+	if (n < -128 || n > 255)
+		displayChar(static_cast <char> (-1));
+	else
+		displayChar(static_cast <char> (n));
 	displayInt(n);
 	displayFloat(static_cast <float> (n));
 	displayDouble(static_cast <double> (n));
@@ -177,7 +178,10 @@ void ScalarConverter::intToAll(long n)
 
 void ScalarConverter::floatToAll(float f)
 {
-	displayChar(static_cast <char> (f));
+	if (f < -128 || f > 255)
+		displayChar(static_cast <char> (-1));
+	else
+		displayChar(static_cast <char> (f));
 	displayInt(static_cast <int> (f));
 	displayFloat((f));
 	displayDouble(static_cast <double> (f));
@@ -185,7 +189,10 @@ void ScalarConverter::floatToAll(float f)
 
 void ScalarConverter::doubleToAll(double d)
 {
-	displayChar(static_cast <char> (d));
+	if (d < -128 || d > 255)
+		displayChar(static_cast <char> (-1));
+	else
+		displayChar(static_cast <char> (d));
 	displayInt(static_cast <int> (d));
 	displayFloat(static_cast <float> (d));
 	displayDouble(d);
@@ -210,7 +217,7 @@ void ScalarConverter::specialDoubleToAll(double d, int flag)
 void ScalarConverter::displayChar(char c)
 {
 	if (c >= 33 && c <= 126)
-		std::cout << "char: '" << c  << "'" << std::endl;
+		std::cout << "char: '" << c << "'" << std::endl;
 	else if ((c >= 0 && c < 33) || c == 127)
 		std::cout << "char: Non displayable" << std::endl;
 	else
@@ -227,12 +234,18 @@ void ScalarConverter::displayInt(long n)
 
 void ScalarConverter::displayFloat(float f)
 {
-	std::cout << "float: " << f << ".0f" << std::endl;
+	if (f == 0 || (f / (int)f) == (int)1)
+		std::cout << "float: " << f << ".0f" << std::endl;
+	else
+		std::cout << "float: " << f << "f" << std::endl;
 }
 
 void ScalarConverter::displayDouble(double d)
 {
-	std::cout << "double: " << d << ".0" << std::endl;
+	if (d == 0 || (d / (int)d) == (int)1)
+		std::cout << "double: " << d << ".0" << std::endl;
+	else
+		std::cout << "double: " << d << std::endl;
 }
 
 void ScalarConverter::displaySpecialFloat(float f, int flag)
@@ -266,37 +279,17 @@ void ScalarConverter::displayError(void)
 void ScalarConverter::convert(std::string arg)
 {
 	if (isChar(arg))
-	{
-		std::cout << "1" << std::endl;
 		convertToChar(arg);
-	}
 	else if (isInt(arg))
-	{
-		std::cout << "2" << std::endl;
 		convertToInt(arg);
-	}
 	else if (isFloat(arg))
-	{
-		std::cout << arg << std::endl;
-		std::cout << "3" << std::endl;
 		convertToFloat(arg);
-	}
 	else if (isDouble(arg))
-	{
-		std::cout << arg << std::endl;
-		std::cout << "4" << std::endl;
 		convertToDouble(arg);
-	}
 	else if (isSpecialFloat(arg))
-	{
-		std::cout << "5" << std::endl;
 		convertToSpecialFloat(arg);
-	}
 	else if (isSpecialDouble(arg))
-	{
-		std::cout << "6" << std::endl;
 		convertToSpecialDouble(arg);
-	}
 	else
 		displayError();
 }
