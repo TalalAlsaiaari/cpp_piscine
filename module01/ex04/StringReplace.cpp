@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   StringReplace.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:16:46 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/05/14 17:13:20 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:20:24 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	StringReplace::checkArgs(int ac, char **av)
 void	StringReplace::openFiles(char **args)
 {
 	_fileName = args[1];
+	std::string replaced = _fileName + ".replace";
 	_s1 = args[2];
 	_s2 = args[3];
 	_infile.open(args[1], std::ifstream::in);
@@ -50,7 +51,7 @@ void	StringReplace::openFiles(char **args)
 		std::cout << "Invalid input file!" << std::endl;
 		exit(3) ;
 	}
-	_outfile.open(strcat(args[1], ".replace"), std::ifstream::out);
+	_outfile.open(replaced.c_str(), std::ifstream::out);
 	if (!_outfile.good())
 	{
 		std::cout << "Outfile could not be created!" << std::endl;
