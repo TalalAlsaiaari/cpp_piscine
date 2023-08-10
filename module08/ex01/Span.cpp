@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:34:41 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/09 20:57:37 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:47:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ long Span::shortestSpan(void)
 	long first;
 	long second;
 	long res;
-	long span = LONG_LONG_MAX;
+	long span = UINT_MAX;
 
 	if (this->currentAmount <= 1)
 		throw NoSpanCanBeFoundException();
@@ -87,16 +87,10 @@ long Span::shortestSpan(void)
 	return (span);
 }
 
-void Span::fillSpan(unsigned int count)
+void Span::fillSpan(std::vector<int> src)
 {
-	if (count > this->maxSize)
+	if (src.size() > this->maxSize)
 		throw NoSpaceLeftException();
-	int *nums = new int[count];
-	this->currentAmount = count;
-	for (unsigned int i = 0; i < count; i++)
-	{
-		nums[i] = i;
-	}
-	cont.assign(nums, nums + count);
-	delete []nums;
+	this->currentAmount = src.size();
+	cont.insert(cont.begin(), src.begin(), src.end());
 }

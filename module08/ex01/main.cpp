@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 12:34:30 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/09 20:53:31 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:48:03 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 	Span sp2 = Span(50);
+	std::vector<int> src(50, 42);
 	try
 	{
-		sp2.fillSpan(50);
+		sp2.fillSpan(src);
 		std::cout << sp2.shortestSpan() << std::endl;
 		std::cout << sp2.longestSpan() << std::endl;
 	}
