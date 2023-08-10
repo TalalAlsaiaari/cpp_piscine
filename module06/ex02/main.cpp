@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:54:54 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/10 15:33:30 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:51:31 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Base* generate(void)
 {
 	int rnd;
 
-	rnd = arc4random() % 100;
+	srand(time(0));
+	rnd = rand() % 100;
 	if ((rnd % 2) == 0)
 		return (new A());
 	else if ((rnd % 3) == 0)

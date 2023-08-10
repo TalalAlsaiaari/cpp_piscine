@@ -6,7 +6,7 @@
 #    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 07:55:22 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/08/01 15:17:40 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/08/10 15:39:08 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,11 @@ OBJS		=	$(SRCS:.cpp=.o)
 
 CXX			=	c++
 
-CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror -g
+CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
 RM			=	rm -rf
 
-%.o : %.cpp %.tpp
+%.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all : $(NAME)
