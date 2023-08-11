@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 08:41:27 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/10 15:43:06 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:58:42 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ template <typename T> Array<T>::~Array()
 	return ;
 }
 
-// Subscript operator for non-const access
 template <typename T> T& Array<T>::operator[](unsigned int index) 
 {
 	if (index >= this->s || index < 0)
@@ -78,7 +77,6 @@ template <typename T> T& Array<T>::operator[](unsigned int index)
 	return this->a[index];
 }
 
-// Subscript operator for const access
 template <typename T> const T& Array<T>::operator[](unsigned int index) const
 {
 	if (index >= this->s || index < 0)
@@ -86,7 +84,6 @@ template <typename T> const T& Array<T>::operator[](unsigned int index) const
 	return this->a[index];
 }
 
-// Member function size() that returns the number of elements in the array.
 template <typename T> unsigned int Array<T>::size()
 {
     return this->s;
