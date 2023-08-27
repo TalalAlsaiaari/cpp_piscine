@@ -6,37 +6,11 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/27 17:58:08 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:14:38 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-BitcoinExchange::BitcoinExchange(void)
-{
-	fileToMap();
-	return ;
-}
-
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
-{
-	*this = copy;
-	return ;
-}
-
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& copy)
-{
-	if (this == &copy)
-		return *this;
-	this->database = copy.database;
-	return *this;
-}
-
-BitcoinExchange::~BitcoinExchange(void)
-{
-	return ;
-}
-
 
 /* if parsing of the database file is needed, the following has to be checked:
 	1. file extension must be .csv
@@ -45,9 +19,10 @@ BitcoinExchange::~BitcoinExchange(void)
 	4. parse the line to be in the format of date,rate exactly (no spaces and comma in the middle)
 	5. check if conversion is possible for each rate */
 
-void BitcoinExchange::fileToMap(void)
+const std::map<std::string, float> fileToMap(void)
 {
 	std::fstream dbFile("data.csv", std::ios::in);
+	std::map<std::string, float> database;
 	std::stringstream conv;
 	std::string line;
 	std::string date;
@@ -62,4 +37,5 @@ void BitcoinExchange::fileToMap(void)
 		database[date] = rate;
 		conv.clear();
 	}
+	return database;
 }

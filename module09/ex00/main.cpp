@@ -6,15 +6,14 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:33:03 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/27 17:33:35 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:22:47 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	BitcoinExchange btc;
 
 	return 0;
 }

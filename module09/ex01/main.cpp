@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 16:32:43 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/27 18:14:29 by talsaiaa         ###   ########.fr       */
+/*   Created: 2023/08/27 18:22:59 by talsaiaa          #+#    #+#             */
+/*   Updated: 2023/08/27 18:23:16 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "RPN.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <map>
-
-const std::map<std::string, float> fileToMap(void);
+int main(int ac, char **av)
+{
+	return 0;
+}
