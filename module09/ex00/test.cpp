@@ -1,21 +1,46 @@
-#include <ctime>
+// #define _XOPEN_SOURCE
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// #include <time.h>
+// #include <ctime>
+
+// int main(void)
+// {
+//     struct tm tm;
+//     char buf[255];
+
+//     memset(&tm, 0, sizeof(tm));
+//     strptime("0-0-0", "%Y-%m-%d", &tm);
+//     std::strftime(buf, sizeof(buf), "%d %b %Y", &tm);
+//     puts(buf);
+//     exit(EXIT_SUCCESS);
+// }
+
+
+#include <cstring>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
  
-int main()
+int main() 
 {
-    // setenv("TZ", "/usr/share/zoneinfo/America/Los_Angeles", 1); // POSIX-specific
+    char input[] = "one + two * (three - four)!";
+    const char* delimiters = "! +- (*)";
+    char *token = std::strtok(input, delimiters);
+    while (token)
+    {
+        std::cout << token << ' ';
+        token = std::strtok(NULL, delimiters);
+    }
  
-    std::tm tm; // Zero initialise
-    tm.tm_year = 2022 - 1900; // 2020
-    tm.tm_mon = 2 - 1; // February
-    tm.tm_mday = 29; // 15th
-    tm.tm_hour = 10;
-    tm.tm_min = 15;
-    tm.tm_isdst = 0; // Not daylight saving
-    std::time_t t = std::mktime(&tm); 
-    // std::tm local = *std::localtime(&t);
- 
-    std::cout << t << std::endl;
+    std::cout << "\nContents of the input string now:\n\"";
+    for (std::size_t n = 0; n < sizeof input; ++n)
+    {
+        const char c = input[n];
+        if (c != '\0')
+            std::cout << c;
+        else
+            std::cout << "\\0";
+    }
+    std::cout << "\"\n";
 }
