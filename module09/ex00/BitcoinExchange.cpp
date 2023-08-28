@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/27 19:35:33 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:16:18 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ const std::map<std::string, float> fileToMap(void)
 	return database;
 }
 
+void checkLine(std::string line)
+{
+	char *token = std::strtok(const_cast<char *>(line.c_str()), "| ");
+	while (token)
+	{
+		std::cout << token << '\n';
+		token = std::strtok(NULL, "| ");
+	}
+	std::cout << "what line looks like now:\n";
+	std::cout << line << std::endl;
+}
+
 void bitcoinExchanger(std::fstream& inputFile)
 {
 	std::string line;
@@ -47,6 +59,7 @@ void bitcoinExchanger(std::fstream& inputFile)
 	for(;std::getline(inputFile, line);)
 	{
 		//funtion to check and parse line?
+		checkLine(line);
 		//function to check and extract date
 		//funtion to check and extract value
 		//funtion to get the result?
