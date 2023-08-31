@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 23:26:07 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/06/30 22:47:25 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:55:03 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 
 class Bureaucrat::GradeTooLowException : public std::exception
 {
-	virtual const char* what() const throw();
+	public:
+		virtual const char* what() const throw();
 };
