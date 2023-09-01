@@ -29,7 +29,7 @@ bool extractDate(const std::string& s, int& d, int& m, int& y)
                 norm->tm_mon  == m - 1 &&
                 norm->tm_year == y - 1900);
     }
-    std::cout << "Error: bad input => " << s << std::endl;
+    std::cout << "Error: bad date => " << s << std::endl;
     return false;
 }
 
