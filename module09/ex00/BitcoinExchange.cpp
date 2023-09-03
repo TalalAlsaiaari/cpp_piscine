@@ -6,28 +6,29 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/03 19:55:04 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:27:34 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-/* if parsing of the database file is needed, the following has to be checked:
-	1. file extension must be .csv
-	2. check if file exists
-	3. check if file can be opened
-	4. parse the line to be in the format of date,rate exactly (no spaces and comma in the middle)
-	5. check if conversion is possible for each rate */
+const char* FailToOpenFileException::what(void) const throw()
+{
+	return "Error: Failed to open database file";
+}
+
 const std::map<std::string, float> fileToMap(void)
 {
 	std::fstream dbFile("data.csv", std::ios::in);
-	std::map<std::string, float> database;
-	std::stringstream conv;
 	std::string line;
+	std::stringstream conv;
+	std::map<std::string, float> database;
 	std::string date;
 	float rate;
 
-	std::getline(dbFile, line); //to skip first line
+	if (dbFile.fail())
+		throw FailToOpenFileException();
+	std::getline(dbFile, line);
 	for (;std::getline(dbFile, line);)
 	{
 		date = line.substr(0, line.find(','));
@@ -61,22 +62,22 @@ bool checkLine(std::string line, t_input *input)
 
 bool checkDate(std::string date)
 {
+    std::tm t;
     std::istringstream is(date);
-    char delimiter;
-    struct tm t;
-    time_t when;
-    const struct tm *norm;
 	int y,m,d;
+    char delimiter;
+    std::time_t when;
+    const std::tm *norm;
 
     memset(&t, 0, sizeof(t));
     if (is >> y >> delimiter >> m >> delimiter >> d)
     {
-        t.tm_mday = d;
-        t.tm_mon = m - 1;
         t.tm_year = y - 1900;
+        t.tm_mon = m - 1;
+        t.tm_mday = d;
         t.tm_isdst = -1;
-        when = mktime(&t);
-        norm = localtime(&when);
+        when = std::mktime(&t);
+        norm = std::localtime(&when);
         if (norm->tm_mday == d
 			&& norm->tm_mon  == m - 1
 			&& norm->tm_year == y - 1900)
@@ -126,9 +127,10 @@ void bitcoinExchanger(std::fstream& inputFile)
 	std::map<std::string, float> database;
 
 	database = fileToMap();
-	std::getline(inputFile, line); //to skip first line, but have to check if first line is not just title
 	for(;std::getline(inputFile, line);)
 	{
+		if (line == "date | value")
+			continue ;
 		if (checkLine(line, &input) && checkDate(input.date) && checkValue(input.value))
 			getResult(input, database);
 	}

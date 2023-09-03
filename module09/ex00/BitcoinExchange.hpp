@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:32:43 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/03 18:22:41 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:28:57 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sstream>
 #include <string>
 #include <map>
-#include <cstdlib>
+#include <ctime>
 #include <cstring>
 
 typedef struct	s_input
@@ -26,5 +26,10 @@ typedef struct	s_input
 	float value;
 } t_input;
 
-const std::map<std::string, float> fileToMap(void);
+class FailToOpenFileException : public std::exception
+{
+	public:
+		virtual const char* what() const throw();
+};
+
 void bitcoinExchanger(std::fstream& inputFile);
