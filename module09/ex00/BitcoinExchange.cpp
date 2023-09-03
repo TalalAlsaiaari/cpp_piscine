@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/03 20:27:34 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:44:12 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ bool checkDate(std::string date)
         if (norm->tm_mday == d
 			&& norm->tm_mon  == m - 1
 			&& norm->tm_year == y - 1900)
-		return true;
+		{
+			std::cout << d << " " << m << " " << y << std::endl;
+			return true;
+		}
     }
     std::cout << "Error: bad date => " << date << std::endl;
     return false;
