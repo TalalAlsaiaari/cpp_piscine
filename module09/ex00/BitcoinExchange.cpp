@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/03 18:04:38 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:49:10 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,42 +39,70 @@ const std::map<std::string, float> fileToMap(void)
 	return database;
 }
 
-void checkLine(std::string line)
+bool checkLine(std::string line, t_input *input)
 {
-	// char *token = std::strtok(const_cast<char *>(line.c_str()), "| ");
-	// while (token)
-	// {
-	// 	std::cout << token << '\n';
-	// 	token = std::strtok(NULL, "| ");
-	// }
-	// std::cout << "what line looks like now:\nclear";
-	// std::cout << line << std::endl;
-
 	std::istringstream is(line);
-	char delimiter;
 	std::string date;
+	char delimiter;
 	float value;
 
 	if (is >> date >> delimiter >> value)
 	{
 		if (delimiter == '|')
-			return ;
+		{
+			input->date = date;
+			input->value = value;
+			return true;
+		}
 	}
+	input->date = "";
+	input->value = -1;
 	std::cout << "Error: bad format => " << line << std::endl;
-	return ;
+	return false;
+}
+
+bool checkDate(std::string date)
+{
+    std::istringstream is(date);
+    char delimiter;
+    struct tm t;
+    time_t when;
+    const struct tm *norm;
+	int y,m,d;
+
+    memset(&t, 0, sizeof(t));
+    if (!date.empty() && is >> y >> delimiter >> m >> delimiter >> d)
+    {
+        t.tm_mday = d;
+        t.tm_mon = m - 1;
+        t.tm_year = y - 1900;
+        t.tm_isdst = -1;
+        when = mktime(&t);
+        norm = localtime(&when);
+        if (norm->tm_mday == d
+			&& norm->tm_mon  == m - 1
+			&& norm->tm_year == y - 1900)
+		return true;
+    }
+    std::cout << "Error: bad date => " << date << std::endl;
+    return false;
 }
 
 void bitcoinExchanger(std::fstream& inputFile)
 {
 	std::string line;
+	t_input input;
 
 	std::getline(inputFile, line); //to skip first line, but have to check if first line is not just title
 	for(;std::getline(inputFile, line);)
 	{
 		//funtion to check and parse line?
-		checkLine(line);
+		if (checkLine(line, &input) && checkDate(input.date))
+			;
 		//function to check and extract date
+		// checkDate(input.date);
 		//funtion to check and extract value
+		// checkValue(input.value);
 		//funtion to get the result?
 		//funtion to print
 	}
