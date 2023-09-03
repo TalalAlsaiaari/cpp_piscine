@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/28 16:16:18 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/03 16:50:11 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,27 @@ const std::map<std::string, float> fileToMap(void)
 
 void checkLine(std::string line)
 {
-	char *token = std::strtok(const_cast<char *>(line.c_str()), "| ");
-	while (token)
+	// char *token = std::strtok(const_cast<char *>(line.c_str()), "| ");
+	// while (token)
+	// {
+	// 	std::cout << token << '\n';
+	// 	token = std::strtok(NULL, "| ");
+	// }
+	// std::cout << "what line looks like now:\nclear";
+	// std::cout << line << std::endl;
+
+	std::istringstream is(line);
+	char delimiter;
+	std::string date;
+	std::string value;
+
+	if (is >> date >> delimiter >> value)
 	{
-		std::cout << token << '\n';
-		token = std::strtok(NULL, "| ");
+		if (delimiter == '|')
+			return ;
 	}
-	std::cout << "what line looks like now:\n";
-	std::cout << line << std::endl;
+	std::cout << "Error: bad format => " << line << std::endl;
+	return ;
 }
 
 void bitcoinExchanger(std::fstream& inputFile)
