@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:47:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/03 18:49:10 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/03 19:55:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ bool checkLine(std::string line, t_input *input)
 			return true;
 		}
 	}
-	input->date = "";
-	input->value = -1;
 	std::cout << "Error: bad format => " << line << std::endl;
 	return false;
 }
@@ -71,7 +69,7 @@ bool checkDate(std::string date)
 	int y,m,d;
 
     memset(&t, 0, sizeof(t));
-    if (!date.empty() && is >> y >> delimiter >> m >> delimiter >> d)
+    if (is >> y >> delimiter >> m >> delimiter >> d)
     {
         t.tm_mday = d;
         t.tm_mon = m - 1;
@@ -88,22 +86,50 @@ bool checkDate(std::string date)
     return false;
 }
 
+bool checkValue(float value)
+{
+	if (value < 0)
+	{
+		std::cout << "Error: not a positive number\n";
+		return false;
+	}
+	if (value > 1000)
+	{
+		std::cout << "Error: too large a number\n";
+		return false;
+	}
+	return true;
+}
+
+void getResult(t_input input, std::map<std::string, float> database)
+{
+	std::map<std::string, float>::iterator it = database.lower_bound(input.date);
+	
+	if (it->first != input.date)
+	{
+		if (it != database.begin())
+			it--;
+		else if (it == database.begin())
+		{
+			std::cout << "Error: date is too old\n";
+			return ;
+		}
+	}
+	std::cout << input.date << " => " << input.value  << " = " << input.value * it->second << std::endl;
+	return ;
+}
+
 void bitcoinExchanger(std::fstream& inputFile)
 {
 	std::string line;
 	t_input input;
+	std::map<std::string, float> database;
 
+	database = fileToMap();
 	std::getline(inputFile, line); //to skip first line, but have to check if first line is not just title
 	for(;std::getline(inputFile, line);)
 	{
-		//funtion to check and parse line?
-		if (checkLine(line, &input) && checkDate(input.date))
-			;
-		//function to check and extract date
-		// checkDate(input.date);
-		//funtion to check and extract value
-		// checkValue(input.value);
-		//funtion to get the result?
-		//funtion to print
+		if (checkLine(line, &input) && checkDate(input.date) && checkValue(input.value))
+			getResult(input, database);
 	}
 }
