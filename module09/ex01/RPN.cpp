@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:24:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/04 14:50:28 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:29:42 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ bool isValid(std::string arg)
 
 void reversePolishNotation(char *arg)
 {
+	std::stack<int, std::list<int>> stack;
 	//check arg for invalid characters
 	if (!isValid(arg))
 	{
