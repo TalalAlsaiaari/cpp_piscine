@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:24:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/04 13:53:55 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:50:28 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool isValid(std::string arg)
 {
-	if (arg.find_first_not_of("0123456789+-/* ") == npos)
+	if (arg.find_first_not_of("0123456789+-/* ") == std::string::npos)
 		return true;
 	return false;
 }
@@ -22,7 +22,11 @@ bool isValid(std::string arg)
 void reversePolishNotation(char *arg)
 {
 	//check arg for invalid characters
-	isValid(arg);
+	if (!isValid(arg))
+	{
+		std::cout << "Error: Invalid character found\n";
+		return ;
+	}
 	//push and check numbers until reach operator
 	//apply the operator and push result
 	//repeat until end of stack
