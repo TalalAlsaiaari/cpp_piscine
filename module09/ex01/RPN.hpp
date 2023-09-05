@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:23:21 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/04 13:43:49 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:47:19 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 #include <stack>
 #include <list>
 #include <sstream>
+#include <cstring>
 
 void reversePolishNotation(char* arg);
