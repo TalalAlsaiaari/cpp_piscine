@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:23:21 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/05 19:47:19 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/07 18:13:13 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 #include <stack>
 #include <list>
 #include <sstream>
-#include <cstring>
+#include <cstdlib>
 
-void reversePolishNotation(char* arg);
+void reversePolishNotation(std::string arg);

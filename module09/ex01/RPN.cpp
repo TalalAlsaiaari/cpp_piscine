@@ -3,61 +3,98 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:24:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/05 19:54:02 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/07 19:08:43 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-bool isValid(std::string arg)
+bool isValid(std::string& arg)
 {
 	if (arg.find_first_not_of("0123456789+-/* ") == std::string::npos)
 		return true;
 	return false;
 }
 
-void push_and_check(std::string arg, std::stack<int, std::list<int> > *stack)
+bool isnegativenum(std::string& token)
 {
-	std::stringstream conv;
-	size_t pos = arg.find_first_of("+-/*");
-	int numbers[2];
-	const char *delim = " ";
-	char *tok = std::strtok(const_cast<char*> (arg.c_str()), delim);
-
-	// if (pos == std::string::npos)
-	// 	do something;
-	for (size_t i = 0; tok && i < pos - 2; i++)
-	{
-		conv << tok;
-		tok = std::strtok(NULL, delim);
-		if (!(conv >> numbers[i]))
-		{
-			std::cout << "Error\n";
-			return ;
-		}
-		conv.clear();
-		stack->push(numbers[i]);
-	}
-	for (int i = 0; i < 2; i++)
-		std::cout << numbers[i] << " ";
-	return ;
+	if (token[0] == '-' && token.size() > 1 && isdigit(token[1]))
+		return true;
+	return false;
 }
 
-void reversePolishNotation(char *arg)
+bool applyOperator(std::string& token, std::stack<int, std::list<int> > *stack)
+{
+	int	lhs;
+	int rhs;
+	
+	if (stack->size() < 2)
+	{
+		std::cout << "Error: Invalid Expression\n";
+		return false;
+	}
+	rhs = stack->top();
+	stack->pop();
+	lhs = stack->top();
+	stack->pop();
+	if (token == "+")
+		stack->push(lhs + rhs);
+	else if (token == "-")
+		stack->push(lhs - rhs);
+	else if (token == "*")
+		stack->push(lhs * rhs);
+	else if (token == "/")
+	{
+		if (rhs == 0)
+		{
+			std::cout << "Error: Division by zero\n";
+			return false;
+		}
+		stack->push(lhs / rhs);
+	}
+	return true;
+}
+
+bool push_and_check(std::string& arg, std::stack<int, std::list<int> > *stack)
+{
+	std::stringstream ss(arg);
+	std::string token;
+	bool ret = true;
+	
+	while (ss >> token)
+	{
+		if (isdigit(token[0]) || isnegativenum(token))
+		{
+			if (atoi(token.c_str()) > 10)
+			{
+				std::cout << "Error: numbers must be less than 10\n";
+				return false;
+			}
+			stack->push (atoi(token.c_str()));
+		}
+		else if (token == "+" || token == "-" || token == "*" || token == "/")
+			ret = applyOperator(token, stack);
+	}
+	return ret;
+}
+
+void reversePolishNotation(std::string arg)
 {
 	std::stack<int, std::list<int> > stack;
 	
-	//check arg for invalid characters
 	if (!isValid(arg))
 	{
 		std::cout << "Error: Invalid character found\n";
 		return ;
 	}
-	//push and check numbers until reach operator
-	push_and_check(arg, &stack);
-	//apply the operator and push result
-	//repeat until end of stack
+	if (!push_and_check(arg, &stack))
+		return ;
+	if (stack.size() == 1)
+		std::cout << stack.top() << std::endl;
+	else
+		std::cout << "Error: Invalid expression\n";
+	return ;
 }
