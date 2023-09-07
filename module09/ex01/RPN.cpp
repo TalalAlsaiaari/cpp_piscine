@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:24:17 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/07 19:08:43 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/07 19:16:43 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ bool push_and_check(std::string& arg, std::stack<int, std::list<int> > *stack)
 	return ret;
 }
 
-void reversePolishNotation(std::string arg)
+void reversePolishNotation(std::string& arg)
 {
 	std::stack<int, std::list<int> > stack;
 	

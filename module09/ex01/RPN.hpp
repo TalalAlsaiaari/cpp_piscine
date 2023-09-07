@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:23:21 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/07 18:13:13 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/07 19:12:34 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,4 @@
 #include <sstream>
 #include <cstdlib>
 
-void reversePolishNotation(std::string arg);
+void reversePolishNotation(std::string& arg);
