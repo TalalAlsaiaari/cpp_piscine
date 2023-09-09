@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/27 18:25:32 by talsaiaa          #+#    #+#              #
-#    Updated: 2023/08/27 18:25:52 by talsaiaa         ###   ########.fr        #
+#    Updated: 2023/09/09 17:00:32 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS		=	$(SRCS:.cpp=.o)
 
 CXX			=	c++
 
-CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 
 RM			=	rm -rf
 
