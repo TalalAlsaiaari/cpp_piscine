@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 17:36:55 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:46:31 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ void usingDeque(std::string& args)
 
 void mergeInsertion(std::string& args)
 {
+	std::clock_t begin = std::clock();
 	if (!isValid(args))
 	{
 		std::cout << "Error: Only postive numbers are allowed\n";
@@ -219,6 +220,20 @@ void mergeInsertion(std::string& args)
 		return ;
 	}
 	usingVector(args);
+	std::clock_t end = std::clock();
+	double time_elapsed_ms = 1.0 * (end - begin) / CLOCKS_PER_SEC;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	std::cout << "\nTime to process a range of x elements with std::vector : ";
+	std::cout << time_elapsed_ms << " us" << std::endl;
+	std::cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	
+	begin = std::clock();
 	usingDeque(args);
+	end = std::clock();
+	time_elapsed_ms = 1.0 * (end - begin) / CLOCKS_PER_SEC;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	std::cout << "\nTime to process a range of x elements with std::vector : ";
+	std::cout << time_elapsed_ms << " us" << std::endl;
+	std::cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 	return ;
 }
