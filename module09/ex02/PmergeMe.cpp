@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 16:17:41 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 16:28:28 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ void sortPairs(std::vector<std::pair<unsigned int, unsigned int> > &vector)
 }
 
 void merge(std::vector<std::pair<unsigned int, unsigned int> > &vector,
-	size_t begin,
-	size_t mid,
-	size_t end)
+	size_t begin, size_t mid, size_t end)
 {
 	std::vector<std::pair<unsigned int, unsigned int> > left;
 	std::vector<std::pair<unsigned int, unsigned int> > right;
@@ -127,40 +125,39 @@ int search(std::vector<unsigned int> &vector, int l, int r, unsigned int second)
 			return mid;
 		if (vector[mid] > second)
 			return search(vector, l, mid - 1, second);
-		// else if (vector[mid] > second)
 		return search(vector, mid + 1, r, second);
 	}
 	return 0;
 }
 
-void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector, bool &flag, unsigned int &oddArg)
+void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &pairedVector, bool &flag, unsigned int &oddArg)
 {
-	std::vector<unsigned int> sortedVector;
+	std::vector<unsigned int> unpairedVector;
 	std::vector<unsigned int>::iterator it;
 	int pos;
 
 	if (!flag)
 		(void)oddArg;
-	for (size_t i = 0; i < vector.size(); i++)
-		sortedVector.push_back(vector[i].first);
-	it = sortedVector.begin();
-	for (size_t i = 0; i < vector.size(); i++)
+	for (size_t i = 0; i < pairedVector.size(); i++)
+		unpairedVector.push_back(pairedVector[i].first);
+	it = unpairedVector.begin();
+	for (size_t i = 0; i < pairedVector.size(); i++)
 	{
-		pos = search(sortedVector, 0 , sortedVector.size() - 1, vector[i].second);
-		sortedVector.insert(it + pos, vector[i].second);
-		it = sortedVector.begin();
+		pos = search(unpairedVector, 0 , unpairedVector.size() - 1, pairedVector[i].second);
+		unpairedVector.insert(it + pos, pairedVector[i].second);
+		it = unpairedVector.begin();
 	}
 	if (flag)
 	{
-		pos = search(sortedVector, 0, sortedVector.size() - 1, oddArg);
-		if (pos == 0 && oddArg > sortedVector[sortedVector.size() - 1])
-			sortedVector.insert(it + sortedVector.size(), oddArg);
+		pos = search(unpairedVector, 0, unpairedVector.size() - 1, oddArg);
+		if (pos == 0 && oddArg > unpairedVector[unpairedVector.size() - 1])
+			unpairedVector.insert(it + unpairedVector.size(), oddArg);
 		else
-			sortedVector.insert(it + pos, oddArg);
+			unpairedVector.insert(it + pos, oddArg);
 	}
 	std::cout << "After:";
-	for (size_t i = 0; i < sortedVector.size(); i++)
-		std::cout << " " << sortedVector[i];
+	for (size_t i = 0; i < unpairedVector.size(); i++)
+		std::cout << " " << unpairedVector[i];
 	std::cout << std::endl;
 	return ;
 }
@@ -172,13 +169,13 @@ void usingVector(std::string& args)
 	
 	// function to pair and return paired vector
 	std::vector<std::pair<unsigned int, unsigned int> >
-		unsortedVector = pairingNumbers(args, flag, oddArg);
+		pairedVector = pairingNumbers(args, flag, oddArg);
 	// function to sort pairs (bigger should be first)
-	sortPairs(unsortedVector);
+	sortPairs(pairedVector);
 	// function to recursivly sort bigger first number pairs
-	sortFirstNumbers(unsortedVector, 0, unsortedVector.size() - 1);
+	sortFirstNumbers(pairedVector, 0, pairedVector.size() - 1);
 	// function to binary search and insert to main chain
-	searchAndInsert(unsortedVector, flag, oddArg);
+	searchAndInsert(pairedVector, flag, oddArg);
 	return ;
 }
 
