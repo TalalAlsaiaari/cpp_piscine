@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 17:34:36 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:36:55 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,19 @@ void usingVector(std::string& args)
 
 void usingDeque(std::string& args)
 {
-	(void)args;
+	bool flag = false; //0 for even, 1 for odd;
+	unsigned int oddArg;
+	std::deque<std::pair<unsigned int, unsigned int> > pairedDeque;
+	std::deque<unsigned int> unpairedDeque;
+	
+	// function to pair and return paired vector
+	pairingNumbers(args, flag, oddArg, pairedDeque);
+	// function to sort pairs (bigger should be first)
+	sortPairs(pairedDeque);
+	// function to recursivly sort bigger first number pairs
+	sortFirstNumbers(pairedDeque, 0, pairedDeque.size() - 1);
+	// function to binary search and insert to main chain
+	searchAndInsert(pairedDeque, flag, oddArg, unpairedDeque);
 	return ;
 }
 
