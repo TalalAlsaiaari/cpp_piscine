@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 12:30:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 13:15:10 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,11 +116,10 @@ void sortFirstNumbers(std::vector<std::pair<unsigned int, unsigned int> > &vecto
 
 int search(std::vector<unsigned int> &vector, int l, int r, unsigned int second)
 {	
-	std::cout << l << " " << r << " " << second << "\n";
 	while (r >= l)
 	{
 		int mid = l + (r - l) / 2;
-		if (vector[mid] != vector.at(0) && vector[mid - 1] < second && vector[mid] > second)
+		if (vector[mid] != vector.at(0) && vector[mid - 1] < second && vector[mid] >= second)
 			return mid;
 		if (vector[mid] < second)
 			l = mid + 1;
@@ -146,10 +145,11 @@ void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector
 			sortedVector.insert(it + pos, vector[i].second);
 		it = sortedVector.begin();
 	}
-	std::cout << "Sorted vector:\n";
+	std::cout << "After:";
 	for (size_t i = 0; i < sortedVector.size(); i++)
-		std::cout << sortedVector[i] << " ";
+		std::cout << " " << sortedVector[i];
 	std::cout << std::endl;
+	return ;
 }
 
 void usingVector(std::string& args)
@@ -157,22 +157,10 @@ void usingVector(std::string& args)
 	// function to pair and return paired vector
 	std::vector<std::pair<unsigned int, unsigned int> >
 		unsortedVector = pairingNumbers(args);
-	std::cout << "Unsorted pairs:\n";
-	for (size_t i = 0; i < unsortedVector.size(); i++)
-		std::cout << unsortedVector[i].first << " " << unsortedVector[i].second << " | ";
-	std::cout << std::endl;
 	// function to sort pairs (bigger should be first)
 	sortPairs(unsortedVector);
-	std::cout << "Sorted pairs:\n";
-	for (size_t i = 0; i < unsortedVector.size(); i++)
-		std::cout << unsortedVector[i].first << " " << unsortedVector[i].second << " | ";
-	std::cout << std::endl;
 	// function to recursivly sort bigger first number pairs
 	sortFirstNumbers(unsortedVector, 0, unsortedVector.size() - 1);
-	std::cout << "Sorted first numbers:\n";
-	for (size_t i = 0; i < unsortedVector.size(); i++)
-		std::cout << unsortedVector[i].first << " " << unsortedVector[i].second << " | ";
-	std::cout << std::endl;
 	// function to binary search and insert to main chain
 	searchAndInsert(unsortedVector);
 	// function to print?
