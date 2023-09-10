@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 16:28:28 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:24:56 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ bool isValid(std::string& args)
 	return false;
 }
 
-std::vector<std::pair<unsigned int, unsigned int> >
-	pairingNumbers(std::string& args, bool &flag, unsigned int &oddArg)
+template <typename Paired> Paired pairingNumbers(std::string& args, bool &flag, unsigned int &oddArg, Paired &myVector)
 {
 	std::stringstream ss(args);
 	std::string token;
 	std::stringstream conv;
 	std::pair<unsigned int, unsigned int> pair;
-	std::vector<std::pair<unsigned int, unsigned int> > myVector;
 
 	for (size_t i = 1; ss >> token; i++)
 	{
@@ -48,10 +46,10 @@ std::vector<std::pair<unsigned int, unsigned int> >
 	return (myVector);
 }
 
-void sortPairs(std::vector<std::pair<unsigned int, unsigned int> > &vector)
+template <typename Paired> void sortPairs(Paired &vector)
 {
 	unsigned int temp;
-	std::vector<std::pair<unsigned int, unsigned int> >::iterator it;
+	typename Paired::iterator it;
 
 	for (it = vector.begin(); it != vector.end(); it++)
 	{
@@ -65,11 +63,11 @@ void sortPairs(std::vector<std::pair<unsigned int, unsigned int> > &vector)
 	return ;
 }
 
-void merge(std::vector<std::pair<unsigned int, unsigned int> > &vector,
+template <typename Paired> void merge(Paired &vector,
 	size_t begin, size_t mid, size_t end)
 {
-	std::vector<std::pair<unsigned int, unsigned int> > left;
-	std::vector<std::pair<unsigned int, unsigned int> > right;
+	Paired left;
+	Paired right;
 	
 	for (size_t i = 0; i < (mid - begin + 1); i++)
 		left.push_back(vector[begin + i]);
@@ -105,7 +103,7 @@ void merge(std::vector<std::pair<unsigned int, unsigned int> > &vector,
 	return ;
 }
 
-void sortFirstNumbers(std::vector<std::pair<unsigned int, unsigned int> > &vector, size_t begin, size_t end)
+template <typename Paired> void sortFirstNumbers(Paired &vector, size_t begin, size_t end)
 {
 	if (begin >= end)
 		return ;
@@ -116,7 +114,7 @@ void sortFirstNumbers(std::vector<std::pair<unsigned int, unsigned int> > &vecto
 	return ;
 }
 
-int search(std::vector<unsigned int> &vector, int l, int r, unsigned int second)
+template <typename Unpaired> int search(Unpaired &vector, int l, int r, unsigned int second)
 {	
 	if (r >= l)
 	{
@@ -130,10 +128,9 @@ int search(std::vector<unsigned int> &vector, int l, int r, unsigned int second)
 	return 0;
 }
 
-void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &pairedVector, bool &flag, unsigned int &oddArg)
+template <typename Paired, typename Unpaired> void searchAndInsert(Paired &pairedVector, bool &flag, unsigned int &oddArg, Unpaired &unpairedVector)
 {
-	std::vector<unsigned int> unpairedVector;
-	std::vector<unsigned int>::iterator it;
+	typename Unpaired::iterator it;
 	int pos;
 
 	if (!flag)
@@ -166,16 +163,17 @@ void usingVector(std::string& args)
 {
 	bool flag = false; //0 for even, 1 for odd;
 	unsigned int oddArg;
+	std::vector<std::pair<unsigned int, unsigned int> > pairedVector;
+	std::vector<unsigned int> unpairedVector;
 	
 	// function to pair and return paired vector
-	std::vector<std::pair<unsigned int, unsigned int> >
-		pairedVector = pairingNumbers(args, flag, oddArg);
+	pairingNumbers(args, flag, oddArg, pairedVector);
 	// function to sort pairs (bigger should be first)
 	sortPairs(pairedVector);
 	// function to recursivly sort bigger first number pairs
 	sortFirstNumbers(pairedVector, 0, pairedVector.size() - 1);
 	// function to binary search and insert to main chain
-	searchAndInsert(pairedVector, flag, oddArg);
+	searchAndInsert(pairedVector, flag, oddArg, unpairedVector);
 	return ;
 }
 
