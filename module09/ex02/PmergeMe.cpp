@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/09 17:28:33 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 12:30:15 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void merge(std::vector<std::pair<unsigned int, unsigned int> > &vector,
 		right_i++;
 		vector_i++;
 	}
+	return ;
 }
 
 void sortFirstNumbers(std::vector<std::pair<unsigned int, unsigned int> > &vector, size_t begin, size_t end)
@@ -110,20 +111,45 @@ void sortFirstNumbers(std::vector<std::pair<unsigned int, unsigned int> > &vecto
 	sortFirstNumbers(vector, begin, mid);
 	sortFirstNumbers(vector, mid + 1, end);
 	merge(vector, begin, mid, end);
+	return ;
+}
+
+int search(std::vector<unsigned int> &vector, int l, int r, unsigned int second)
+{	
+	std::cout << l << " " << r << " " << second << "\n";
+	while (r >= l)
+	{
+		int mid = l + (r - l) / 2;
+		if (vector[mid] != vector.at(0) && vector[mid - 1] < second && vector[mid] > second)
+			return mid;
+		if (vector[mid] < second)
+			l = mid + 1;
+		else
+			r = mid - 1;
+	}
+	return 0;
 }
 
 void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector)
 {
-	size_t l = 0;
-	size_t r = vector.size() - 1;
-	std::vector<int> sortedVector;
-	
-	while (l <= r)
+	std::vector<unsigned int> sortedVector;
+	std::vector<unsigned int>:: iterator it;
+	int pos;
+
+	for (size_t i = 0; i < vector.size(); i++)
+		sortedVector.push_back(vector[i].first);
+	it = sortedVector.begin();
+	for (size_t i = 0; i < vector.size(); i++)
 	{
-		size_t m = l + (r - 1) / 2;
-		if (vector[m].second = vector[0].second)
-			vector.insert(vector.begin(), vector[m].second);
+		pos = search(sortedVector, 0 , sortedVector.size() - 1, vector[i].second);
+		if (pos != -1)
+			sortedVector.insert(it + pos, vector[i].second);
+		it = sortedVector.begin();
 	}
+	std::cout << "Sorted vector:\n";
+	for (size_t i = 0; i < sortedVector.size(); i++)
+		std::cout << sortedVector[i] << " ";
+	std::cout << std::endl;
 }
 
 void usingVector(std::string& args)
