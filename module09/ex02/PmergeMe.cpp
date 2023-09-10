@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 14:56:07 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 16:17:41 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool isValid(std::string& args)
 }
 
 std::vector<std::pair<unsigned int, unsigned int> >
-	pairingNumbers(std::string& args, int &flag)
+	pairingNumbers(std::string& args, bool &flag, unsigned int &oddArg)
 {
 	std::stringstream ss(args);
 	std::string token;
@@ -34,19 +34,14 @@ std::vector<std::pair<unsigned int, unsigned int> >
 		if (i % 2 != 0)
 		{
 			conv >> pair.first;
-			flag = -2;
+			flag = true;
+			oddArg = pair.first;
 		}
 		else
 		{
 			conv >> pair.second;
-			// have to check for odd number args
 			myVector.push_back(pair);
-			flag = -1;
-		}
-		if (ss >> token && flag == -2)
-		{
-			std::cout << "end of args\n";
-			flag = pair.first;
+			flag = false;
 		}
 		conv.clear();
 	}
@@ -125,25 +120,27 @@ void sortFirstNumbers(std::vector<std::pair<unsigned int, unsigned int> > &vecto
 
 int search(std::vector<unsigned int> &vector, int l, int r, unsigned int second)
 {	
-	while (r >= l)
+	if (r >= l)
 	{
 		int mid = l + (r - l) / 2;
-		if (vector[mid] != vector.at(0) && vector[mid - 1] < second && vector[mid] >= second)
+		if (mid != 0 && vector[mid - 1] <= second && vector[mid] >= second)
 			return mid;
-		if (vector[mid] < second)
-			l = mid + 1;
-		else
-			r = mid - 1;
+		if (vector[mid] > second)
+			return search(vector, l, mid - 1, second);
+		// else if (vector[mid] > second)
+		return search(vector, mid + 1, r, second);
 	}
 	return 0;
 }
 
-void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector)
+void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector, bool &flag, unsigned int &oddArg)
 {
 	std::vector<unsigned int> sortedVector;
 	std::vector<unsigned int>::iterator it;
 	int pos;
 
+	if (!flag)
+		(void)oddArg;
 	for (size_t i = 0; i < vector.size(); i++)
 		sortedVector.push_back(vector[i].first);
 	it = sortedVector.begin();
@@ -152,6 +149,14 @@ void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector
 		pos = search(sortedVector, 0 , sortedVector.size() - 1, vector[i].second);
 		sortedVector.insert(it + pos, vector[i].second);
 		it = sortedVector.begin();
+	}
+	if (flag)
+	{
+		pos = search(sortedVector, 0, sortedVector.size() - 1, oddArg);
+		if (pos == 0 && oddArg > sortedVector[sortedVector.size() - 1])
+			sortedVector.insert(it + sortedVector.size(), oddArg);
+		else
+			sortedVector.insert(it + pos, oddArg);
 	}
 	std::cout << "After:";
 	for (size_t i = 0; i < sortedVector.size(); i++)
@@ -162,19 +167,18 @@ void searchAndInsert(std::vector<std::pair<unsigned int, unsigned int> > &vector
 
 void usingVector(std::string& args)
 {
-	int flag = -1; //0 for even, 1 for odd;
+	bool flag = false; //0 for even, 1 for odd;
+	unsigned int oddArg;
 	
 	// function to pair and return paired vector
 	std::vector<std::pair<unsigned int, unsigned int> >
-		unsortedVector = pairingNumbers(args, flag);
-	std::cout << "flag: " << flag << std::endl;
+		unsortedVector = pairingNumbers(args, flag, oddArg);
 	// function to sort pairs (bigger should be first)
 	sortPairs(unsortedVector);
 	// function to recursivly sort bigger first number pairs
 	sortFirstNumbers(unsortedVector, 0, unsortedVector.size() - 1);
 	// function to binary search and insert to main chain
-	searchAndInsert(unsortedVector);
-	// function to print?
+	searchAndInsert(unsortedVector, flag, oddArg);
 	return ;
 }
 
