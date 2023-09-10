@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 17:24:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:34:36 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ bool isValid(std::string& args)
 	return false;
 }
 
-template <typename Paired> Paired pairingNumbers(std::string& args, bool &flag, unsigned int &oddArg, Paired &myVector)
+template <typename Paired> Paired
+	pairingNumbers(std::string& args, bool &flag, unsigned int &oddArg, Paired &myContainer)
 {
 	std::stringstream ss(args);
 	std::string token;
@@ -38,20 +39,20 @@ template <typename Paired> Paired pairingNumbers(std::string& args, bool &flag, 
 		else
 		{
 			conv >> pair.second;
-			myVector.push_back(pair);
+			myContainer.push_back(pair);
 			flag = false;
 		}
 		conv.clear();
 	}
-	return (myVector);
+	return (myContainer);
 }
 
-template <typename Paired> void sortPairs(Paired &vector)
+template <typename Paired> void sortPairs(Paired &myContainer)
 {
 	unsigned int temp;
 	typename Paired::iterator it;
 
-	for (it = vector.begin(); it != vector.end(); it++)
+	for (it = myContainer.begin(); it != myContainer.end(); it++)
 	{
 		if (it->first < it->second)
 		{
@@ -63,98 +64,107 @@ template <typename Paired> void sortPairs(Paired &vector)
 	return ;
 }
 
-template <typename Paired> void merge(Paired &vector,
-	size_t begin, size_t mid, size_t end)
+template <typename Paired> void
+	merge(Paired &myContainer, size_t begin, size_t mid, size_t end)
 {
 	Paired left;
 	Paired right;
+	size_t left_i = 0;
+	size_t right_i = 0; 
+	size_t myContainer_i = begin;
 	
 	for (size_t i = 0; i < (mid - begin + 1); i++)
-		left.push_back(vector[begin + i]);
+		left.push_back(myContainer[begin + i]);
 	for (size_t i = 0; i < (end - mid); i++)
-		right.push_back(vector[mid + 1 + i]);
-	size_t left_i = 0, right_i = 0, vector_i = begin;
+		right.push_back(myContainer[mid + 1 + i]);
 	while (left_i < left.size() && right_i < right.size())
 	{
 		if (left[left_i].first <= right[right_i].first)
 		{
-			vector[vector_i] = left[left_i];
+			myContainer[myContainer_i] = left[left_i];
 			left_i++;
 		}
 		else
 		{
-			vector[vector_i] = right[right_i];
+			myContainer[myContainer_i] = right[right_i];
 			right_i++;
 		}
-		vector_i++;
+		myContainer_i++;
 	}
 	while (left_i < left.size())
 	{
-		vector[vector_i] = left[left_i];
+		myContainer[myContainer_i] = left[left_i];
 		left_i++;
-		vector_i++;
+		myContainer_i++;
 	}
 	while (right_i < right.size())
 	{
-		vector[vector_i] = right[right_i];
+		myContainer[myContainer_i] = right[right_i];
 		right_i++;
-		vector_i++;
+		myContainer_i++;
 	}
 	return ;
 }
 
-template <typename Paired> void sortFirstNumbers(Paired &vector, size_t begin, size_t end)
+template <typename Paired> void
+	sortFirstNumbers(Paired &myContainer, size_t begin, size_t end)
 {
+	size_t mid;
+
 	if (begin >= end)
 		return ;
-	size_t mid = begin + (end - begin) / 2;
-	sortFirstNumbers(vector, begin, mid);
-	sortFirstNumbers(vector, mid + 1, end);
-	merge(vector, begin, mid, end);
+	mid = begin + (end - begin) / 2;
+	sortFirstNumbers(myContainer, begin, mid);
+	sortFirstNumbers(myContainer, mid + 1, end);
+	merge(myContainer, begin, mid, end);
 	return ;
 }
 
-template <typename Unpaired> int search(Unpaired &vector, int l, int r, unsigned int second)
+template <typename Unpaired> int
+	search(Unpaired &myContainer, int l, int r, unsigned int second)
 {	
+	int mid;
+
 	if (r >= l)
 	{
-		int mid = l + (r - l) / 2;
-		if (mid != 0 && vector[mid - 1] <= second && vector[mid] >= second)
+		mid = l + (r - l) / 2;
+		if (mid != 0 && myContainer[mid - 1] <= second && myContainer[mid] >= second)
 			return mid;
-		if (vector[mid] > second)
-			return search(vector, l, mid - 1, second);
-		return search(vector, mid + 1, r, second);
+		if (myContainer[mid] > second)
+			return search(myContainer, l, mid - 1, second);
+		return search(myContainer, mid + 1, r, second);
 	}
 	return 0;
 }
 
-template <typename Paired, typename Unpaired> void searchAndInsert(Paired &pairedVector, bool &flag, unsigned int &oddArg, Unpaired &unpairedVector)
+template <typename Paired, typename Unpaired> void
+	searchAndInsert(Paired &pairedContainer, bool &flag, unsigned int &oddArg, Unpaired &unpairedContainer)
 {
 	typename Unpaired::iterator it;
 	int pos;
 
 	if (!flag)
 		(void)oddArg;
-	for (size_t i = 0; i < pairedVector.size(); i++)
-		unpairedVector.push_back(pairedVector[i].first);
-	it = unpairedVector.begin();
-	for (size_t i = 0; i < pairedVector.size(); i++)
+	for (size_t i = 0; i < pairedContainer.size(); i++)
+		unpairedContainer.push_back(pairedContainer[i].first);
+	it = unpairedContainer.begin();
+	for (size_t i = 0; i < pairedContainer.size(); i++)
 	{
-		pos = search(unpairedVector, 0 , unpairedVector.size() - 1, pairedVector[i].second);
-		unpairedVector.insert(it + pos, pairedVector[i].second);
-		it = unpairedVector.begin();
+		pos = search(unpairedContainer, 0 , unpairedContainer.size() - 1, pairedContainer[i].second);
+		unpairedContainer.insert(it + pos, pairedContainer[i].second);
+		it = unpairedContainer.begin();
 	}
 	if (flag)
 	{
-		pos = search(unpairedVector, 0, unpairedVector.size() - 1, oddArg);
-		if (pos == 0 && oddArg > unpairedVector[unpairedVector.size() - 1])
-			unpairedVector.insert(it + unpairedVector.size(), oddArg);
+		pos = search(unpairedContainer, 0, unpairedContainer.size() - 1, oddArg);
+		if (pos == 0 && oddArg > unpairedContainer[unpairedContainer.size() - 1])
+			unpairedContainer.insert(it + unpairedContainer.size(), oddArg);
 		else
-			unpairedVector.insert(it + pos, oddArg);
+			unpairedContainer.insert(it + pos, oddArg);
 	}
 	std::cout << "After:";
-	for (size_t i = 0; i < unpairedVector.size(); i++)
-		std::cout << " " << unpairedVector[i];
+	for (size_t i = 0; i < unpairedContainer.size(); i++)
+		std::cout << " " << unpairedContainer[i];
 	std::cout << std::endl;
 	return ;
 }
