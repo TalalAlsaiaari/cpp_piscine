@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/10 19:46:31 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:13:56 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,19 +162,24 @@ template <typename Paired, typename Unpaired> void
 		else
 			unpairedContainer.insert(it + pos, oddArg);
 	}
+	return ;
+}
+
+template <typename Unpaired> void
+	printContainer(Unpaired &unpairedContainer)
+{
 	std::cout << "After:";
 	for (size_t i = 0; i < unpairedContainer.size(); i++)
 		std::cout << " " << unpairedContainer[i];
 	std::cout << std::endl;
-	return ;
 }
 
-void usingVector(std::string& args)
+void usingVector(std::string& args, std::vector<unsigned int> &unpairedVector)
 {
 	bool flag = false; //0 for even, 1 for odd;
 	unsigned int oddArg;
 	std::vector<std::pair<unsigned int, unsigned int> > pairedVector;
-	std::vector<unsigned int> unpairedVector;
+	// std::vector<unsigned int> unpairedVector;
 	
 	// function to pair and return paired vector
 	pairingNumbers(args, flag, oddArg, pairedVector);
@@ -187,12 +192,12 @@ void usingVector(std::string& args)
 	return ;
 }
 
-void usingDeque(std::string& args)
+void usingDeque(std::string& args, std::deque<unsigned int> &unpairedDeque)
 {
 	bool flag = false; //0 for even, 1 for odd;
 	unsigned int oddArg;
 	std::deque<std::pair<unsigned int, unsigned int> > pairedDeque;
-	std::deque<unsigned int> unpairedDeque;
+	// std::deque<unsigned int> unpairedDeque;
 	
 	// function to pair and return paired vector
 	pairingNumbers(args, flag, oddArg, pairedDeque);
@@ -202,38 +207,45 @@ void usingDeque(std::string& args)
 	sortFirstNumbers(pairedDeque, 0, pairedDeque.size() - 1);
 	// function to binary search and insert to main chain
 	searchAndInsert(pairedDeque, flag, oddArg, unpairedDeque);
+	// function to print
+	printContainer(unpairedDeque);
 	return ;
+}
+
+void printTime(std::clock_t begin, std::clock_t &end, std::string containerType, size_t size)
+{
+	double time_elapsed = 1.0 * (end - begin) / CLOCKS_PER_SEC;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	std::cout << "\nTime to process a range of " << size << " elements with " << containerType << " : ";
+	std::cout << time_elapsed << " us" << std::endl;
+	std::cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
 
 void mergeInsertion(std::string& args)
 {
-	std::clock_t begin = std::clock();
+	std::clock_t handlingArgs_begin = std::clock();
 	if (!isValid(args))
 	{
 		std::cout << "Error: Only postive numbers are allowed\n";
 		return ;
 	}
+	std::clock_t handlingArgs_end = std::clock();
+	std::clock_t time_handlingArgs = handlingArgs_end - handlingArgs_begin;
 	std::cout << "Before: " << args << std::endl;
 	if (args.size() == 1)
 	{
 		std::cout << "After: " << args << std::endl;
 		return ;
 	}
-	usingVector(args);
-	std::clock_t end = std::clock();
-	double time_elapsed_ms = 1.0 * (end - begin) / CLOCKS_PER_SEC;
-	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-	std::cout << "\nTime to process a range of x elements with std::vector : ";
-	std::cout << time_elapsed_ms << " us" << std::endl;
-	std::cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-	
-	begin = std::clock();
-	usingDeque(args);
-	end = std::clock();
-	time_elapsed_ms = 1.0 * (end - begin) / CLOCKS_PER_SEC;
-	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-	std::cout << "\nTime to process a range of x elements with std::vector : ";
-	std::cout << time_elapsed_ms << " us" << std::endl;
-	std::cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	std::vector<unsigned int> unpairedVector;
+	std::clock_t vectorBegin = std::clock();
+	usingVector(args, unpairedVector);
+	std::clock_t vectorEnd = std::clock();
+	std::deque<unsigned int> unpairedDeque;
+	std::clock_t dequeBegin = std::clock();
+	usingDeque(args, unpairedDeque);
+	std::clock_t dequeEnd = std::clock();
+	printTime((vectorBegin + time_handlingArgs), vectorEnd, "std::vector", unpairedVector.size());
+	printTime((dequeBegin + time_handlingArgs), dequeEnd, "std::deque", unpairedDeque.size());
 	return ;
 }
