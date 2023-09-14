@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:34:41 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/10 12:47:04 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:09:57 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,23 @@ Span::Span(unsigned int N)
 {
 	this->maxSize = N;
 	this->currentAmount = 0;
+}
+
+Span::Span(const Span &copy)
+{
+	this->maxSize = copy.maxSize;
+	this->currentAmount = copy.currentAmount;
+	this->cont = copy.cont;
+	return ;
+}
+const Span& Span::operator=(const Span &copy)
+{
+	if (this == &copy)
+		return *this;
+	this->maxSize = copy.maxSize;
+	this->currentAmount = copy.currentAmount;
+	this->cont = copy.cont;
+	return *this;
 }
 
 Span::~Span()
@@ -93,4 +110,11 @@ void Span::fillSpan(std::vector<int> src)
 		throw NoSpaceLeftException();
 	this->currentAmount = src.size();
 	cont.insert(cont.begin(), src.begin(), src.end());
+}
+
+void	Span::printContainer(void)
+{
+	for (size_t i = 0; i < cont.size(); i++)
+		std::cout << cont[i] << " ";
+	std::cout << std::endl;
 }

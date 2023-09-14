@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 12:34:30 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/10 12:48:03 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:10:31 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,11 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	Span sp3(sp);
+	sp3.printContainer();
+	
+	Span sp4;
+	sp4 = sp3;
+	sp4.printContainer();
 	return 0;
 }

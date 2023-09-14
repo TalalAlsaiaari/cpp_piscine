@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:51 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/08/10 12:48:30 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:02:56 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Span
 		long shortestSpan(void);
 		long longestSpan(void);
 		void fillSpan(std::vector<int>);
+		void printContainer(void);
 		class NoSpaceLeftException : public std::exception
 		{
 			public:
