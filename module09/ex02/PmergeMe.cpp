@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:25:59 by talsaiaa          #+#    #+#             */
-/*   Updated: 2023/09/14 13:13:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:54:52 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,10 +214,10 @@ void usingDeque(std::string& args, std::deque<unsigned int> &unpairedDeque)
 
 void printTime(std::clock_t begin, std::clock_t &end, std::string containerType, size_t size)
 {
-	double time_elapsed = 1.0 * (end - begin) / CLOCKS_PER_SEC;
+	double time_elapsed = 1000.0 * (end - begin) / CLOCKS_PER_SEC;
 	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 	std::cout << "\nTime to process a range of " << size << " elements with " << containerType << " : ";
-	std::cout << time_elapsed << " us" << std::endl;
+	std::cout << time_elapsed << " ms" << std::endl;
 	std::cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
 
